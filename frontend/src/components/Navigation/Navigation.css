@@ -1,0 +1,15 @@
+.navbar-body {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    background-color:#ffd4d4;
+    position:fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+}
+
+.account-btn {
+    background: transparent;
+    border: 0px;
+}

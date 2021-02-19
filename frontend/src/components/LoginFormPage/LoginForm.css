@@ -7,11 +7,7 @@
   *:focus {
       outline: none;
   }
-  body {
-  font-family: Arial;
-  background-color: whitesmoke;
-  padding: 50px;
-  }
+
 
   .form-container {
     display:flex;
