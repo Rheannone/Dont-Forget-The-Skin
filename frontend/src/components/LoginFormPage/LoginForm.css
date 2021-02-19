@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Yeseva+One&display=swap');
+
+* {
+  box-sizing: border-box;
+  }
+  
+  *:focus {
+      outline: none;
+  }
+  body {
+  font-family: Arial;
+  background-color: whitesmoke;
+  padding: 50px;
+  }
+  .login {
+  margin: 20px auto;
+  width: 300px;
+  }
+  .login-screen {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px
+  }
+  
+  .login-form {
+  text-align: center;
+  }
+  .input-group {
+  margin-bottom: 10px;
+  }
+  
+  input {
+  text-align: center;
+  background-color: whitesmoke;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: 200;
+  padding: 10px 0;
+  width: 250px;
+  transition: border .5s;
+  }
+  
+  input:focus {
+  border: 2px solid #ffd4d4;
+  box-shadow: none;
+  }
+  
+  .btn {
+    border: 2px solid transparent;
+    background-color: #ffd4d4;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 10px 0;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: 0.25s;
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+  }
+  
+  .btn:hover {
+    background-color: #ffabab;
+    cursor: pointer;
+  }
+  
+  .login-link {
+    font-size: 12px;
+    color: #444;
+    display: block;
+      margin-top: 12px;
+  }
+
+  .login-title {
+    font-family: 'Yeseva One', cursive;
+    margin-bottom: 10px;
+    color: #ffabab;
+
+
+  }
+
+  .error-list {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    list-style-type: none;
+    color: black;
+    text-align:center;
+  }
