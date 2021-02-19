@@ -31,8 +31,9 @@ function ProfileButton({ user }) {
 
   return (
     <>
+    <div className="navbar-body">
       <button className="account-btn" onClick={openMenu}>
-        <i className="fas fa-cog" />
+        <i className="fas fa-cog">ˬ</i>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
@@ -43,6 +44,7 @@ function ProfileButton({ user }) {
           </li>
         </ul>
       )}
+    </div>
     </>
   );
 }
