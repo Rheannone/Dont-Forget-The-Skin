@@ -8,6 +8,12 @@
     *:focus {
         outline: none;
     }
+
+    .form-container{
+      display:flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
     .signup-body {
     font-family: Arial;
     background-color: whitesmoke;
@@ -32,6 +38,7 @@
     }
     
     input {
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     background-color: whitesmoke;
     border: 2px solid transparent;
@@ -49,6 +56,7 @@
     }
     
     .btn {
+      font-family: 'Roboto', sans-serif;
       border: 2px solid transparent;
       background-color: #ffd4d4;
       color: #ffffff;

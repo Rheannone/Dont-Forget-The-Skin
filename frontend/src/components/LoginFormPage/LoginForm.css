@@ -12,7 +12,14 @@
   background-color: whitesmoke;
   padding: 50px;
   }
+
+  .form-container {
+    display:flex;
+    flex-direction: row;
+  }
+
   .login {
+    font-family: 'Roboto', sans-serif;
   margin: 20px auto;
   width: 300px;
   }
@@ -28,23 +35,7 @@
   .input-group {
   margin-bottom: 10px;
   }
-  
-  input {
-  text-align: center;
-  background-color: whitesmoke;
-  border: 2px solid transparent;
-  border-radius: 3px;
-  font-size: 16px;
-  font-weight: 200;
-  padding: 10px 0;
-  width: 250px;
-  transition: border .5s;
-  }
-  
-  input:focus {
-  border: 2px solid #ffd4d4;
-  box-shadow: none;
-  }
+
   
   .btn {
     border: 2px solid transparent;

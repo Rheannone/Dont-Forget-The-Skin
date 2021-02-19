@@ -29,7 +29,7 @@ function SignupFormPage() {
   };
 
   return (
-    <div className="signup">
+    <div className="form-container">
       <div className="signup-screen">
     <form className="signup-form" onSubmit={handleSubmit}>
       
