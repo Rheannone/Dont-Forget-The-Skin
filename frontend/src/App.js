@@ -5,6 +5,7 @@ import * as sessionActions from './store/session'
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupForm';
 import Navigation from './components/Navigation';
+import LandingPage from './components/LandingPage';
 import './index.css'
 
 
@@ -23,6 +24,9 @@ function App() {
     <Navigation isLoaded={isLoaded} />
     {isLoaded && (
       <Switch>
+        <Route path="/welcome">
+          <LandingPage />
+        </Route>
         <Route path="/login">
           <LoginFormPage />
         </Route>

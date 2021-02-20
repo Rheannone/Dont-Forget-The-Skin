@@ -26,7 +26,7 @@ function LoginFormPage() {
   }
 
   return (
-    <div className="form-container">
+    <div className="login-form-container">
     <div className="login-screen">
     <form className="login-form" onSubmit={handleSubmit}>
     {(!errors.length > 0) ? <div className="login-title">Login</div> : 
