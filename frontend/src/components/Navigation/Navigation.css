@@ -1,6 +1,6 @@
 .navbar-body {
     display: grid;
-    align-content: space-around;
+    align-content: space-around0;
     grid-template-areas: 
         "left center right";
     grid-template-columns: 2fr 1fr 1fr;
