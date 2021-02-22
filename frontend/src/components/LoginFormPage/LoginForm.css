@@ -1,77 +1,163 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Yeseva+One&display=swap');
 
+
 * {
-  box-sizing: border-box;
-  }
-  
-  *:focus {
-      outline: none;
-  }
+    box-sizing: border-box;
+    }
+    
+    *:focus {
+        outline: none;
+    }
+
+    .landing-page-container {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "left right"
+        "left right"
+    };
+
+    .login-form-container{
+      grid-area:right;
+      width: 100%;
+
+    }
+
+    .panel-container {
+      grid-area: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      background-color: #fcbad3;
+      width: 50%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    .panel-caption {
+      font-size: 1rem
+    }
+
+    .login-welcome {
+      display: flex;
+      flex-direction: column;
+      justify-content:space-around;
+      height: 30%;
+      width: 100%;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-size: 4em;
+      background-color: transparent;
+      font-family: 'Yeseva One', cursive;
+      margin-bottom: 10px;
+    }
+    .logo-main {
+      height: 50px;
+      width: auto;
+      
+    }
 
 
-  .login-form-container {
-    display:flex;
-    flex-direction: row;
-  }
+    .login-screen {
+      align-self: center;
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      width:50%;
+      position: absolute;
+      right:0;
+      top:0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      }
 
-  .login {
-    font-family: 'Roboto', sans-serif;
-  margin: 20px auto;
-  width: 300px;
-  }
-  .login-screen {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px
-  }
-  
-  .login-form {
-  text-align: center;
-  }
-  .input-group {
-  margin-bottom: 10px;
-  }
 
-  
-  .btn {
-    border: 2px solid transparent;
-    background-color: #ffd4d4;
-    color: #ffffff;
-    font-size: 16px;
-    line-height: 25px;
-    padding: 10px 0;
-    border-radius: 3px;
-    box-shadow: none;
-    transition: 0.25s;
-    display: block;
-    width: 250px;
-    margin: 0 auto;
-  }
-  
-  .btn:hover {
-    background-color: #ffabab;
-    cursor: pointer;
-  }
-  
-  .login-link {
-    font-size: 12px;
-    color: #444;
-    display: block;
-      margin-top: 12px;
-  }
+    .login-body {
+    font-family: Arial;
+    background-color: whitesmoke;
+    padding: 50px;
+    }
 
-  .login-title {
-    font-family: 'Yeseva One', cursive;
+    .login {
+    margin: 20px auto;
+    width: 300px;
+    }
+
+    
+    .login-form {
+    text-align: center;
+    }
+    .input-group {
     margin-bottom: 10px;
-    color: #ffabab;
-
-
-  }
-
-  .error-list {
+    }
+    
+    input {
     font-family: 'Roboto', sans-serif;
-    font-size: 12px;
-    list-style-type: none;
-    color: black;
-    text-align:center;
-  }
+    text-align: center;
+    background-color: whitesmoke;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 10px 0;
+    width: 250px;
+    transition: border .5s;
+    }
+    
+    input:focus {
+    border: 2px solid #FCBAD3;
+    box-shadow: none;
+    }
+    
+    .btn {
+      font-family: 'Roboto', sans-serif;
+      border: 2px solid transparent;
+      background-color: #FCBAD3;
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 25px;
+      padding: 10px 0;
+      border-radius: 3px;
+      box-shadow: none;
+      transition: 0.25s;
+      display: block;
+      width: 250px;
+      margin: 0 auto;
+    }
+    
+    .btn:hover {
+      background-color: #ffabab;
+      cursor: pointer;
+    }
+    
+    .login-link {
+      font-size: 12px;
+      color: #444;
+      display: block;
+      margin-top: 12px;
+    }
+
+    .login-title {
+      font-family: 'Yeseva One', cursive;
+      margin-bottom: 10px;
+      color: #FCBAD3;
+      font-size: 4em;
+
+
+    }
+
+    .error-list {
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+      list-style-type: none;
+      color: black;
+      text-align:center;
+    }
+

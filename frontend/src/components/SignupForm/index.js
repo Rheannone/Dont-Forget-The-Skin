@@ -35,8 +35,7 @@ function SignupFormPage() {
       <div className="signup-welcome">
       <div className="panel-logo">
         <img className="logo-main"src="https://i.imgur.com/3RRsOjg.png"></img>
-        </div>
-
+      </div>
         <h5>Don't <br></br>Forget <br></br>The Face</h5>
         <p className="panel-caption">Stop guessing and start tracking.<br></br>Quantify your skincare routine today.</p>
       </div>  

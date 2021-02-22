@@ -26,6 +26,17 @@ function LoginFormPage() {
   }
 
   return (
+    <>
+    <div className="landing-page-container">
+    <div className="panel-container">
+    <div className="login-welcome">
+    <div className="panel-logo">
+        <img className="logo-main"src="https://i.imgur.com/3RRsOjg.png"></img>
+      </div>
+      <h5>Welcome Back, <br></br>Beautiful.</h5>
+      <p className="panel-caption">Stop guessing and start tracking.<br></br>Quantify your skincare routine today.</p>
+      </div>
+    </div>
     <div className="login-form-container">
     <div className="login-screen">
     <form className="login-form" onSubmit={handleSubmit}>
@@ -58,11 +69,15 @@ function LoginFormPage() {
       </label>
       </div>
       <button className="btn" type="submit">Log In</button>
-      
+      <p><a href="/signup">or click here to create an account</a></p>
+
+
       
     </form>
     </div>
     </div>
+    </div>
+    </>
   );
 }
 
