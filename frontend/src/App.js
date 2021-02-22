@@ -5,7 +5,8 @@ import * as sessionActions from './store/session'
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupForm';
 import Navigation from './components/Navigation';
-import LandingPage from './components/LandingPage';
+import Dashboard from './components/Dashboard';
+
 import './index.css'
 
 
@@ -33,6 +34,10 @@ function App() {
         <Route path="/signup">
           <SignupFormPage />
         </Route>
+        <Route path="/dashboard">
+          <Dashboard />
+        </Route>
+
       </Switch>
     )}
   </>

@@ -19,10 +19,6 @@
         "left right"
     };
 
-    .webcam-bground {
-      background-color: blue;
-      
-    }
 
     .login-form-container{
       grid-area:right;

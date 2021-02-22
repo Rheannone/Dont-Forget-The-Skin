@@ -62,6 +62,8 @@ function LoginFormPage() {
            style={{
             borderRadius: '50%',
             objectFit: 'cover',
+            borderStyle: 'dashed',
+            borderColor: 'pink',
 
           }}
         />
