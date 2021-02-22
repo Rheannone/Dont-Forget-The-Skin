@@ -31,7 +31,17 @@ function SignupFormPage() {
   return (
     <>
     <div className="landing-page-container">
-    <div className="panel-container" />
+    <div className="panel-container">
+      <div className="signup-welcome">
+      <div className="panel-logo">
+        <img className="logo-main"src="https://i.imgur.com/3RRsOjg.png"></img>
+        </div>
+
+        <h5>Don't <br></br>Forget <br></br>The Face</h5>
+        <p className="panel-caption">Stop guessing and start tracking.<br></br>Quantify your skincare routine today.</p>
+      </div>  
+      
+    </div>
     <div className="form-container">
       <div className="signup-screen">
     <form className="signup-form" onSubmit={handleSubmit}>
@@ -87,6 +97,7 @@ function SignupFormPage() {
       </label>
       </div>
       <button className="btn" type="submit">Sign Up</button>
+      <p><a href="/login">or click here to log in.</a></p>
     </form>
     </div>
     </div>

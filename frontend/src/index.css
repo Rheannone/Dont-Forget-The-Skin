@@ -1,7 +1,11 @@
 body {
     top:40px;
-    font-family: Arial;
+    font-family: 'Roboto', sans-serif;
     background-color: whitesmoke;
     margin:0px;
     height: 100%
     }
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+};
