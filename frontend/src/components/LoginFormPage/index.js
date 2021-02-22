@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import Webcam from "react-webcam";
 import './LoginForm.css'
 
 function LoginFormPage() {
@@ -24,12 +25,25 @@ function LoginFormPage() {
         if (data && data.errors) setErrors(data.errors);
       });
   }
+  let video;
+  let canvas; 
+  let context; 
+  
+
+//   if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
+//     navigator.mediaDevices.getUserMedia({video: true}).then(stream => {
+//         video.srcObject = stream;
+//         video.play()
+//     })
+// }
 
   return (
     <>
+    
     <div className="landing-page-container">
     <div className="panel-container">
     <div className="login-welcome">
+
     <div className="panel-logo">
         <img className="logo-main"src="https://i.imgur.com/3RRsOjg.png"></img>
       </div>
@@ -38,7 +52,9 @@ function LoginFormPage() {
       </div>
     </div>
     <div className="login-form-container">
+
     <div className="login-screen">
+    <Webcam />
     <form className="login-form" onSubmit={handleSubmit}>
     {(!errors.length > 0) ? <div className="login-title">Login</div> : 
         <div className="signup-title">Woops! <div className="error-list">
@@ -70,10 +86,19 @@ function LoginFormPage() {
       </div>
       <button className="btn" type="submit">Log In</button>
       <p><a href="/signup">or click here to create an account</a></p>
-
-
-      
     </form>
+    {/* {video = document.querySelector('#video')}
+    {canvas = document.querySelector('#canvas')}
+    {context = canvas.getContext('2d')}
+    {(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)?
+    navigator.mediaDevices.getUserMedia({video: true}).then(stream => {
+        video.srcObject = stream;
+        video.play() 
+    })} */}
+
+    {/* <video id="video" width="640" height="480" autoPlay></video>
+    <button id="snap">Take Photo</button>
+    <canvas id="canvas" width="640" height="480" ></canvas> */}
     </div>
     </div>
     </div>
