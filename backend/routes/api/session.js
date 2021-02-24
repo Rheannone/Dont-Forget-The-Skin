@@ -51,7 +51,6 @@ router.post(
     }
   );
 
-  // Restore session user
 router.get(
     '/',
     restoreUser,
