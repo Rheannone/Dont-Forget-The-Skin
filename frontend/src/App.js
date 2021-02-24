@@ -15,7 +15,6 @@ import './index.css'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  const { toggleMenu } = useContext(MenuContext);
 
 
   useEffect(() => {
@@ -39,7 +38,6 @@ function App() {
         </Route>
         <Route path="/dashboard">
           <Dashboard />
-          
         </Route>
 
       </Switch>

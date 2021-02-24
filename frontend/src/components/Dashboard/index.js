@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { MenuContext } from "react-flexible-sliding-menu";
+
 import * as sessionActions from '../../store/session';
 import * as dashboardActions from '../../store/dashboard'
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,8 +13,10 @@ import './Dashboard.css'
 function Dashboard() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
+  const { toggleMenu } = useContext(MenuContext);
   const taskItems = useSelector(state => state.dashboard.list)
   const taskItemsArray = Object.values(taskItems)
+
 
 
 
@@ -39,6 +43,9 @@ function Dashboard() {
     <div className="dashboard-container">
     Hello, {sessionUser.username}
     <h1>List Items</h1>
+    <button onClick={toggleMenu} className="primary-button">
+        Toggle Menu
+      </button>
     {console.log("FROM RETURN.... ", taskItemsArray)}
     <ul>
       {taskItemsArray.map(item =>(
