@@ -2,12 +2,14 @@ import {csrfFetch} from './csrf';
 
 const SET_LIST = 'dashboard/setList';
 
-const setList = (list) => ({
+const setList = (list) => {
+    return {
     type: SET_LIST,
-    payload: list
-})
+    list,
+    };
+};
 
-export const getList = (userId) => async (dispatch) => {
+export const getList = (userId) => async dispatch => {
     const res = await csrfFetch(`/api/dashboard/${userId}`);
     if (res.ok){
     const data = await res.json();
@@ -17,23 +19,25 @@ export const getList = (userId) => async (dispatch) => {
     }
 }
 
-function reducer(state = {}, action) {
-    let newState;
-    
+
+const initialState = {
+    list:[]
+}
+function dashboardReducer(state = initialState, action) {
     switch(action.type) {
         case SET_LIST:
-            newState = {};
-            action.payload.forEach(item => {
-                // console.log("FROM REDUCER", item)
-                newState[item.id] = {
-                    id: item.id,
-                    body: item.body
-                }
+            const allDash = {};
+            action.list.forEach(item => {
+                allDash[item.id] = item
+                // console.log("from reducer", allDash)
             });
-            return newState
+            return {
+                ...allDash,
+                ...state,
+                list: action.list
+            }
         default:
             return state;
     }
 }
-
-export default reducer;
+export default dashboardReducer;
