@@ -5,6 +5,7 @@ import Menu, { Item as MenuItem, Divider } from 'rc-menu';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import './Navigation.css';
+import { Redirect } from "react-router-dom";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ function ProfileButton({ user }) {
 
   const logout = (e) => {
     e.preventDefault();
+    <Redirect to="/login" />
     dispatch(sessionActions.logout());
   };
   

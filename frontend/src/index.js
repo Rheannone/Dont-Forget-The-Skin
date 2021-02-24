@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider as ReduxProvider } from 'react-redux';
+import MenuProvider from "react-flexible-sliding-menu";
 // import './index.css';
 import App from './App';
+import Menu from './components/Menu';
 // import LandingPage from './components/LandingPage'
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
@@ -25,7 +27,9 @@ function Root() {
   return (
     <ReduxProvider store={store}>
       <BrowserRouter>
+      <MenuProvider MenuComponent={Menu} animation="push">
         <App />
+        </MenuProvider>
       </BrowserRouter>
     </ReduxProvider>
   );

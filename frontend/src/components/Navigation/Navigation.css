@@ -4,7 +4,7 @@
     grid-template-areas: 
         "left center right";
     grid-template-columns: 2fr 1fr 1fr;
-    background-color:#ffd4d4;
+    background-color:pink;
     position:fixed;
     top: 0;
     left:0;

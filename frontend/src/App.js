@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {useDispatch} from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
+import { MenuContext } from "react-flexible-sliding-menu";
 import * as sessionActions from './store/session'
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupForm';
@@ -14,6 +15,8 @@ import './index.css'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const { toggleMenu } = useContext(MenuContext);
+
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -36,9 +39,11 @@ function App() {
         </Route>
         <Route path="/dashboard">
           <Dashboard />
+          
         </Route>
 
       </Switch>
+      
     )}
   </>
   );

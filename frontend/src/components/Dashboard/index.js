@@ -19,7 +19,10 @@ function Dashboard() {
 
 
   useEffect(() => {
-    dispatch(getList(sessionUser.id));
+    if(!sessionUser.id){
+      <Redirect to="/login" />
+    } else {
+    dispatch(getList(sessionUser.id))};
   }, [dispatch, sessionUser.id]);
 
   // if dispatch is in the useEffect dependancy, the page errors
