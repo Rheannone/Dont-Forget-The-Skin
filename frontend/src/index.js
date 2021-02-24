@@ -27,9 +27,7 @@ function Root() {
   return (
     <ReduxProvider store={store}>
       <BrowserRouter>
-      <MenuProvider MenuComponent={Menu} animation="push">
         <App />
-        </MenuProvider>
       </BrowserRouter>
     </ReduxProvider>
   );

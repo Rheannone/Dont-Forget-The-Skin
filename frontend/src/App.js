@@ -2,6 +2,8 @@ import React, {useState, useEffect, useContext} from 'react';
 import {useDispatch} from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { MenuContext } from "react-flexible-sliding-menu";
+import MenuProvider from "react-flexible-sliding-menu";
+import Menu from './components/Menu';
 import * as sessionActions from './store/session'
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupForm';
