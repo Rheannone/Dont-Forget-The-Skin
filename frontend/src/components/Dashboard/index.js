@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useMenu } from '../../context/MenuContext';
 import { Redirect } from 'react-router-dom';
 import { getList } from '../../store/dashboard';
+import SliderMenu from '../SliderMenu';
 import './Dashboard.css'
 
 function Dashboard() {
@@ -30,14 +31,13 @@ function Dashboard() {
   //   document.getElementById("openbtn").style.visibility = "visible";
 
   // }
-
   useEffect(() => {
     console.log("FROM USE EFFECT", sessionUser)
     if(!sessionUser.id){
       history.push("/login")
     } else {
     dispatch(getList(sessionUser.id))};
-  }, [dispatch, sessionUser.id]);
+  }, [dispatch]);
 
 
 
@@ -47,37 +47,9 @@ function Dashboard() {
 
   return (
     <>
+    
     <div className="dashboard-container">
-    <div id="mySidebar" className="sidebar">
-        <a href="javascript:void(0)" className="closebtn" onClick={() => setMenu('closed')}>&times;</a>
-        <h3>Add a Step</h3>
-        <form>
-          <input type="text" placeholder="name of product"></input>
-          <input type="checkbox" id="morning" name="morning" value="morning"></input>
-          <label for="morning">a.m.?</label>
-          <input type="checkbox" id="evening" name="evening" value="evening"></input>
-          <label for="evening">p.m.?</label>
-          <p>Which days?</p>
-          <input type="checkbox" id="monday" name="monday" value="monday"></input>
-          <label for="monday">monday</label>
-          <input type="checkbox" id="tuesday" name="tuesday" value="tuesday"></input>
-          <label for="tuesday">tuesday</label>
-          <input type="checkbox" id="wednesday" name="wednesday" value="wednesday"></input>
-          <label for="wednesday">wednesday</label>
-          <input type="checkbox" id="thursday" name="thursday" value="thursday"></input>
-          <label for="thursday">thursday</label>
-          <input type="checkbox" id="friday" name="friday" value="friday"></input>
-          <label for="friday">friday</label>
-          <input type="checkbox" id="saturday" name="saturday" value="saturday"></input>
-          <label for="saturday">saturday</label>
-          <input type="checkbox" id="sunday" name="sunday" value="sunday"></input>
-          <label for="sunday">sunday</label>
-        </form>
-    </div>
-
-  <div id="main">
-      <button className="openbtn" id="openbtn" onClick={() => setMenu('open')}>&#9776; +</button>
-</div>
+    <SliderMenu />
     Hello, {sessionUser.username}
     <h1>List Items</h1>
 

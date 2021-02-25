@@ -32,7 +32,6 @@ const validateSignup = [
 router.get('/test', asyncHandler(async(req, res, next) => {
   const users = await User.findAll();
   const tasks = await Task.findAll();
-  console.log("HELLO FROM GET")
   return res.json({ name: "test" });
   
 }));
