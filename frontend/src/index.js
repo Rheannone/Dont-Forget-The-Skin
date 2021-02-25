@@ -2,11 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider as ReduxProvider } from 'react-redux';
-import MenuProvider from "react-flexible-sliding-menu";
-// import './index.css';
 import App from './App';
-import Menu from './components/Menu';
-// import LandingPage from './components/LandingPage'
+import MenuProvider from './context/MenuContext'
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { restoreCSRF, csrfFetch } from '../src/store/csrf';
@@ -25,11 +22,13 @@ if (process.env.NODE_ENV !== 'production') {
 
 function Root() {
   return (
-    <ReduxProvider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ReduxProvider>
+    <MenuProvider>
+     <ReduxProvider store={store}>
+       <BrowserRouter>
+         <App />
+       </BrowserRouter>
+      </ReduxProvider>
+    </MenuProvider>
   );
 }
 
