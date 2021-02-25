@@ -5,10 +5,11 @@ import Menu, { Item as MenuItem, Divider } from 'rc-menu';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import './Navigation.css';
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
   
   function onSelect({ key }) {
@@ -19,15 +20,17 @@ function ProfileButton({ user }) {
     console.log(visible);
   }
 
+  //use a history.push , import history at the top
+  //no return === not updating in the v dom
   const logout = (e) => {
     e.preventDefault();
-    <Redirect to="/login" />
+    history.push('/login')
     dispatch(sessionActions.logout());
   };
   
   const menu = (
     <Menu onSelect={onSelect}>
-      <MenuItem disabled>disabled</MenuItem>
+      <MenuItem disabled><p>TESTING</p><h3>Gaian</h3></MenuItem>
       <MenuItem key="1">one</MenuItem>
       <Divider />
       <MenuItem key="2">two</MenuItem>

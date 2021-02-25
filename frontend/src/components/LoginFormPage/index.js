@@ -30,12 +30,6 @@ function LoginFormPage() {
   let context; 
   
 
-//   if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
-//     navigator.mediaDevices.getUserMedia({video: true}).then(stream => {
-//         video.srcObject = stream;
-//         video.play()
-//     })
-// }
 
   return (
     <>
