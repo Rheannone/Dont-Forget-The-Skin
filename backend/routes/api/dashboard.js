@@ -1,12 +1,13 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
+const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { Op } = require("sequelize")
 const { Task } = require("../../db/models")
 
 const router = express.Router();
 
 
-router.post('/task', asyncHandler(async function(req, res) {
+router.post('/:userId/task', restoreUser, asyncHandler(async function(req, res) {
     const {  userId,
         singleStep,
         tags,
@@ -25,7 +26,7 @@ router.post('/task', asyncHandler(async function(req, res) {
         night,
         morning,
         activeIngredients}  = req.body;
-
+    try{
     const task = await Task.add({ 
         userId,
         singleStep,
@@ -45,10 +46,15 @@ router.post('/task', asyncHandler(async function(req, res) {
         night,
         morning,
         activeIngredients
+        
     })
-    return res.json({
-        task
-    });
+
+    await setTokenCookie(res, req.user);
+    return res.json({task});
+} catch(error) {
+    console.error("This is the error", error)
+}
+    
 }));
 
 router.get('/:userId', asyncHandler(async function(req, res) {

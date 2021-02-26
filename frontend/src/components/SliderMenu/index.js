@@ -78,7 +78,7 @@ function SliderMenu() {
 
 
     const step = await dispatch(createTask(payload, sessionUser.id));
-    if(step) {
+    if(!step) {
       console.log("ITEM ADDED")
     }
   }

@@ -10,11 +10,10 @@ const setList = (list) => {
     };
 };
 
-const addTask = (task) => {
+const addTask = ({task}) => {
     return {
         type: ADD_TASK,
         task,
-
     }
 }
 
@@ -27,7 +26,7 @@ export const createTask = (data) => async (dispatch) => {
       activeIngredients } = data;
 
     console.log("from post", data)
-    const response = await csrfFetch(`/api/dashboard/task`, {
+    const response = await csrfFetch(`/api/dashboard/${userId}/task`, {
         method: "POST",
 
         body: JSON.stringify({
@@ -42,6 +41,7 @@ export const createTask = (data) => async (dispatch) => {
 
     if (response.ok) {
         const task = await response.json();
+        console.log(task)
         dispatch(addTask(task));
         return response;
         
@@ -75,15 +75,14 @@ function dashboardReducer(state = initialState, action) {
                 list: action.list
             }
         case ADD_TASK: {
-            if(!state[action.task.id]) {
                 const newState = {
                     ...state,
                     [action.task.id]: action.task
                 };
-                const taskList = newState.task.map(id => newState[id]);
-                taskList.push(action.task);
-                console.log("ADD TASK REDUCER", newState.task)
-            }
+                newState.list.push(action.task)
+                console.log("newstate", newState)
+            
+            return newState;
         }
         default:
             return state;

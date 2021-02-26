@@ -1,5 +1,4 @@
 'use strict';
-const { setTokenCookie, requireAuth } = require('../../utils/auth');
 
 module.exports = (sequelize, DataTypes) => {
   const Task = sequelize.define('Task', {
@@ -62,7 +61,6 @@ module.exports = (sequelize, DataTypes) => {
         morning,
         activeIngredients
       });
-      await setTokenCookie(res, user);
       return await Task.findByPk(task.id)
     };
 
