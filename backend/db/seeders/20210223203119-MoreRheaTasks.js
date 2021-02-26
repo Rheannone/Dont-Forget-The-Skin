@@ -4,7 +4,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
 
       return queryInterface.bulkInsert('Tasks', [{
-        userId: 4,
+        userId: 3,
         singleStep: "QMS Intensive Eye Care",
         tags: "qms, eye, eyecream, ",
         lengthInMin: 3,
@@ -27,7 +27,7 @@ module.exports = {
 
       },
       {
-        userId: 4,
+        userId: 3,
         singleStep: "dr. brandt HydroBiotic Recovery Sleeping Mask",
         tags: "sleeping mask, dr.brandt",
         lengthInMin: 60,
@@ -50,7 +50,7 @@ module.exports = {
 
       },
       {
-        userId: 4,
+        userId: 3,
         singleStep: "Kate Somerville ExfoliKate Intensive Exfoliating Treatment",
         tags: "exfoliation, Kate Somerville",
         lengthInMin: 2,
@@ -73,7 +73,7 @@ module.exports = {
 
       },
       {
-        userId: 4,
+        userId: 3,
         singleStep: "Elemis Superfood Vital Veggie Mask",
         tags: "mask, Elemis, ",
         lengthInMin: 10,
@@ -96,7 +96,7 @@ module.exports = {
 
       },
       {
-        userId: 4,
+        userId: 3,
         singleStep: "Glow Recipe Watermelon Glow Sleeping Mask",
         tags: "Glow Recipe, mask, sleeping mask",
         lengthInMin: 60,
@@ -119,7 +119,7 @@ module.exports = {
 
       },
       {
-        userId: 4,
+        userId: 3,
         singleStep: "Grown Alchemist Matte Balancing Moisturizer",
         tags: "moisturizer, Grown Alchemist, ",
         lengthInMin: 5,
@@ -142,7 +142,7 @@ module.exports = {
 
       },
       {
-        userId: 4,
+        userId: 3,
         singleStep: "dr. brandt DoNotAge Triple Peptide Eye Cream",
         tags: "eye cream, dr.brandt ",
         lengthInMin: 3,

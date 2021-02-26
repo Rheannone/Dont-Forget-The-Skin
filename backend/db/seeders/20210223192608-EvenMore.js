@@ -73,7 +73,7 @@ module.exports = {
 
       },
       {
-        userId: 4,
+        userId: 3,
         singleStep: "Shiseido Benefiance Wrinkle Resist24 Day Cream with SPF 18",
         tags: "moisturizer, spf, shiseido",
         lengthInMin: 5,
@@ -96,7 +96,7 @@ module.exports = {
 
       },
       {
-        userId: 4,
+        userId: 3,
         singleStep: "dr. brandt Light Years Away Brightening Eye Cream",
         tags: "dr.brandt, eye cream, anti-aging",
         lengthInMin: 1,
