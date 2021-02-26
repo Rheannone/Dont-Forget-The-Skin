@@ -18,7 +18,7 @@ const addTask = (task) => {
     }
 }
 
-export const createTask = (data) => async dispatch => {
+export const createTask = (data) => async (dispatch) => {
     const { userId, singleStep, tags, lengthInMin, type, startDate, emptyDate, sizeInFlOz, mon, tues, wed, thur, fri,
       sat,
       sun,
@@ -27,11 +27,9 @@ export const createTask = (data) => async dispatch => {
       activeIngredients } = data;
 
     console.log("from post", data)
-    const response = await csrfFetch(`/api/dashboard/${userId}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+    const response = await csrfFetch(`/api/dashboard/task`, {
+        method: "POST",
+
         body: JSON.stringify({
             userId, singleStep, tags, lengthInMin, type, startDate, emptyDate, sizeInFlOz, mon, tues, wed, thur, fri,
       sat,

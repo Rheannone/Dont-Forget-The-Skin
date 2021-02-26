@@ -1,4 +1,6 @@
 'use strict';
+const { setTokenCookie, requireAuth } = require('../../utils/auth');
+
 module.exports = (sequelize, DataTypes) => {
   const Task = sequelize.define('Task', {
     userId: DataTypes.INTEGER,
@@ -20,6 +22,51 @@ module.exports = (sequelize, DataTypes) => {
     morning: DataTypes.BOOLEAN,
     activeIngredients: DataTypes.STRING
   }, {});
+
+  Task.add = async function ({   
+    userId,
+    singleStep,
+    tags,
+    lengthInMin,
+    type,
+    startDate,
+    emptyDate,
+    sizeInFlOz,
+    mon,
+    tues,
+    wed,
+    thur,
+    fri,
+    sat,
+    sun,
+    night,
+    morning,
+    activeIngredients}) {
+      const task = await Task.create({
+        userId,
+        singleStep,
+        tags,
+        lengthInMin,
+        type,
+        startDate,
+        emptyDate,
+        sizeInFlOz,
+        mon,
+        tues,
+        wed,
+        thur,
+        fri,
+        sat,
+        sun,
+        night,
+        morning,
+        activeIngredients
+      });
+      await setTokenCookie(res, user);
+      return await Task.findByPk(task.id)
+    };
+
+
   Task.associate = function(models) {
     Task.belongsTo(models.User, {foreignKey: 'userId'})
   };

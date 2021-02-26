@@ -6,6 +6,51 @@ const { Task } = require("../../db/models")
 const router = express.Router();
 
 
+router.post('/task', asyncHandler(async function(req, res) {
+    const {  userId,
+        singleStep,
+        tags,
+        lengthInMin,
+        type,
+        startDate,
+        emptyDate,
+        sizeInFlOz,
+        mon,
+        tues,
+        wed,
+        thur,
+        fri,
+        sat,
+        sun,
+        night,
+        morning,
+        activeIngredients}  = req.body;
+
+    const task = await Task.add({ 
+        userId,
+        singleStep,
+        tags,
+        lengthInMin,
+        type,
+        startDate,
+        emptyDate,
+        sizeInFlOz,
+        mon,
+        tues,
+        wed,
+        thur,
+        fri,
+        sat,
+        sun,
+        night,
+        morning,
+        activeIngredients
+    })
+    return res.json({
+        task
+    });
+}));
+
 router.get('/:userId', asyncHandler(async function(req, res) {
     console.log("THIS IS THE USERRR", req.params.userId)
     const list = await Task.findAll({
