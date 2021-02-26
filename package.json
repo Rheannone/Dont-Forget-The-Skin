@@ -12,16 +12,9 @@
     "sequelize-cli": "npm run --prefix backend sequelize-cli",
     "start": "npm start --prefix backend"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Rheannone/Authenticate-Me.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Rheannone/Authenticate-Me/issues"
-  },
-  "homepage": "https://github.com/Rheannone/Authenticate-Me#readme",
+
   "dependencies": {
     "rc-dropdown": "^3.2.0"
   }
