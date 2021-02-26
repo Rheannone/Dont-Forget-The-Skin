@@ -6,21 +6,6 @@ const { Task } = require("../../db/models")
 const router = express.Router();
 
 
-// export const createTask = data => async dispatch => {
-//     const response = await fetch(`/task/new`, {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(data)
-//     });
-
-//     if (response.ok) {
-//         const task = await response.json();
-        
-//     }
-// }
-
 router.get('/:userId', asyncHandler(async function(req, res) {
     console.log("THIS IS THE USERRR", req.params.userId)
     const list = await Task.findAll({
