@@ -13,13 +13,15 @@ function Dashboard() {
   const dispatch = useDispatch();
   const history = useHistory();
   const { menuState, setMenu } = useMenu()
-  const {list, setList } = useList()
+  // const {list, setList } = useList()
   const sessionUser = useSelector(state => state.session.user);
   const taskItems = useSelector(state => state.dashboard.list)
-  const taskItemsArray = Object.values(taskItems);
+  console.log("from component taskitems", taskItems);
+  // const taskItemsArray = Object.values(taskItems);
+  // console.log("from component taskitemsArray", taskItemsArray);
 
 
-    console.log("from component task items", taskItems)
+
     const handleDelete = (e) => {
     dispatch(destroyTask(e.target.value))
     // dispatch(getList(sessionUser.id)) 
@@ -27,7 +29,10 @@ function Dashboard() {
 
 
 
-const length = taskItemsArray?.length
+const length = taskItems?.length
+console.log("length", length)
+
+
   useEffect(() => {
     if(!sessionUser.id){
       history.push("/login")
@@ -51,8 +56,8 @@ const length = taskItemsArray?.length
     Hello, {sessionUser.username}
     <h1>List Items</h1>
 
-    {(taskItemsArray.length === 0 ? <p>start your skincare journey. click the '+' to add your first step</p> :<ul>
-      {taskItemsArray.map(item =>(
+    {(taskItems?.length === 0 ? <p>start your skincare journey. click the '+' to add your first step</p> :<ul>
+      {taskItems?.map(item =>(
         <li key={item.id}><p>{item.singleStep}</p><p>{item.tags}</p><button value={item.id} onClick={handleDelete}>x</button><button>edit</button>
         {(item.lengthInMin > 0) ? <h4>{item.lengthInMin} min</h4> : null}</li>
         

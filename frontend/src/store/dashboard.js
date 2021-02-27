@@ -84,11 +84,14 @@ const initialState = {
 function dashboardReducer(state = initialState, action) {
     switch(action.type) {
         case SET_LIST:
-            console.log("from reducer.....", action.list)
+            
 
             const allDash = {};
             action.list.forEach(item => {
                 allDash[item.id] = item
+                console.log("from reducer.....allDash", allDash)
+                console.log("from reducer.....state", state)
+                
             });
             return {
                 ...allDash,
@@ -100,7 +103,8 @@ function dashboardReducer(state = initialState, action) {
                     ...state,
                     [action.task.id]: action.task
                 };
-                newState.list.push(action.task)            
+                newState.list.push(action.task)
+            
             return newState;
         }
         case DELETE_TASK :{

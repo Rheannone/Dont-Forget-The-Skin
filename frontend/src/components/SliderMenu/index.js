@@ -15,7 +15,6 @@ function SliderMenu() {
   const WholeMenu = useMenu()
   const sessionUser = useSelector(state => state.session.user);
   const taskItems = useSelector(state => state.dashboard.list)
-  const taskItemsArray = Object.values(taskItems)
   const [singleStep, setSingleStep] = useState("")
   const [morning, setMorning] = useState(false)
   const [night, setNight] = useState(false)
