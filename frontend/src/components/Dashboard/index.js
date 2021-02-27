@@ -18,11 +18,16 @@ function Dashboard() {
 
   const handleDelete = (e) => {
     e.preventDefault()
-    console.log("from component", e.target.value)
 
     dispatch(destroyTask(e.target.value))
+    dispatch(getList(sessionUser.id))
 
   }
+
+  useEffect(() => {
+
+  }, [])
+
 
   useEffect(() => {
     if(!sessionUser.id){

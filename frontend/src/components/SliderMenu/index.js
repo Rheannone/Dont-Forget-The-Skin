@@ -140,13 +140,23 @@ function SliderMenu() {
           <input type="checkbox"
           id="morning"
           name="morning"
-          value="morning" />
+          value={morning}
+          onChange={(e) => setMorning(true)}
+          checked={morning === true ? true : false}
+          
+           />
           <label for="morning">morning</label> 
           </div>
 
 
           <div className="add-product-form-card">
-          <input type="checkbox" id="evening" name="evening" value="evening"></input>
+          <input type="checkbox" 
+          id="evening" 
+          name="evening" 
+          value={night}
+          onChange={(e) => setNight(true)}
+          checked={night === true ? true : false}
+          />
           <label for="evening">evening</label>
           </div>
 

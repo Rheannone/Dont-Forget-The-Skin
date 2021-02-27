@@ -2,6 +2,7 @@ import {csrfFetch} from './csrf';
 
 const SET_LIST = 'dashboard/setList';
 const ADD_TASK = 'dashboard/addTask';
+const DELETE_TASK = 'dashboard/deleteTask'
 
 const setList = (list) => {
     return {
@@ -10,6 +11,12 @@ const setList = (list) => {
     };
 };
 
+const deleteTask = (id) => {
+    return {
+         type: DELETE_TASK,
+         id,
+    }
+}
 
 
 const addTask = ({task}) => {
@@ -85,7 +92,7 @@ function dashboardReducer(state = initialState, action) {
                 ...allDash,
                 ...state,
                 list: action.list
-            }
+            }    
         case ADD_TASK: {
                 const newState = {
                     ...state,
@@ -95,6 +102,10 @@ function dashboardReducer(state = initialState, action) {
                 console.log("newstate", newState)
             
             return newState;
+        }
+        case DELETE_TASK :{
+            const newerList = state.filter(item => item.id !== action.payload)
+            return newerList
         }
         default:
             return state;
