@@ -4,7 +4,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
 
       return queryInterface.bulkInsert('Tasks', [{
-        userId: 4,
+        userId: 3,
         singleStep: "Estee Lauder Nighttime Repair",
         tags: "serum, Estee Lauder, evening, repair",
         lengthInMin: 1,

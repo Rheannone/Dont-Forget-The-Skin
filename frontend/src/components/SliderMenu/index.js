@@ -34,7 +34,7 @@ function SliderMenu() {
   const [sizeInFlOz, setSizeInFlOz] = useState(0)
   const [activeIngredients, setActiveIngredients] = useState("")
 
-  const updateStep = (e) => setSingleStep(e.target.value);
+  let updateStep = (e) => setSingleStep(e.target.value);
   const isMorning = (e) => setMorning(e.target.value);
   const isNight = (e) => setNight(e.target.value)
   const isMon = (e) => setMon(e.target.value)
@@ -78,9 +78,7 @@ function SliderMenu() {
 
 
     const step = await dispatch(createTask(payload, sessionUser.id));
-    if(!step) {
-      console.log("ITEM ADDED")
-    }
+   
   }
 
 
@@ -124,7 +122,7 @@ function SliderMenu() {
           id="morning"
           name="morning"
           value="morning" />
-          <label for="morning">morning</label>
+          <label for="morning">morning</label> 
           </div>
           <div className="add-product-form-card">
           <input type="checkbox" id="evening" name="evening" value="evening"></input>

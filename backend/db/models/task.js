@@ -64,6 +64,18 @@ module.exports = (sequelize, DataTypes) => {
       return await Task.findByPk(task.id)
     };
 
+    Task.delete = async function(taskId) {
+      console.log("from the model this is taskId", taskId)
+      
+      const removed = await Task.destroy({
+        where:{
+          id: taskId
+        }
+        
+      })
+      return;
+      
+    }
 
   Task.associate = function(models) {
     Task.belongsTo(models.User, {foreignKey: 'userId'})

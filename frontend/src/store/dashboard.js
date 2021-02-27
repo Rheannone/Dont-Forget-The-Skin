@@ -10,10 +10,23 @@ const setList = (list) => {
     };
 };
 
+
+
 const addTask = ({task}) => {
     return {
         type: ADD_TASK,
         task,
+    }
+}
+
+export const destroyTask = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/dashboard/task/${id}`, {
+        method: 'delete',
+    });
+    if (response.ok) {
+        console.log("from the store, here is the response", response)
+        const newList = await response.json();
+        dispatch(setList(newList))
     }
 }
 
@@ -25,7 +38,6 @@ export const createTask = (data) => async (dispatch) => {
       morning,
       activeIngredients } = data;
 
-    console.log("from post", data)
     const response = await csrfFetch(`/api/dashboard/${userId}/task`, {
         method: "POST",
 

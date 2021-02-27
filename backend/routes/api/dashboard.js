@@ -6,6 +6,17 @@ const { Task } = require("../../db/models")
 
 const router = express.Router();
 
+router.delete('/task/:taskId', restoreUser, asyncHandler(async function(req, res) {
+    const id = req.params.taskId;
+    console.log("from routes/api this is req.params.....",req.params)
+    console.log("from routes/api this is req.params.taskId.....",req.params.taskId)
+
+    // { taskId: '29' }
+    const newList = await Task.delete(id)
+    setTokenCookie(res, req.user);
+    return res.json(newList)
+}))
+
 
 router.post('/:userId/task', restoreUser, asyncHandler(async function(req, res) {
     const {  userId,
@@ -58,7 +69,6 @@ router.post('/:userId/task', restoreUser, asyncHandler(async function(req, res) 
 }));
 
 router.get('/:userId', asyncHandler(async function(req, res) {
-    console.log("THIS IS THE USERRR", req.params.userId)
     const list = await Task.findAll({
         where: {
             userId: req.params.userId
@@ -66,6 +76,8 @@ router.get('/:userId', asyncHandler(async function(req, res) {
     });
     return res.json({list})
 }))
+
+
 
 
 //List of Finished Products
@@ -98,7 +110,6 @@ router.get('/morning/:userId', asyncHandler(async function(req, res) {
 //EveningRoutine
 // Works! 
 router.get('/evening/:userId', asyncHandler(async function(req, res) {
-    console.log("THIS IS THE EVENING LIST")
     const list = await Task.findAll({
         where: [{
             night: true
