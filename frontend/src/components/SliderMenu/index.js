@@ -54,6 +54,23 @@ function SliderMenu() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+      setSingleStep("")
+      setMorning(false);
+      setNight(false);
+      setMon(false);
+      setTues(false);
+      setWed(false);
+      setThur(false);
+      setFri(false);
+      setSat(false);
+      setSun(false);
+      setTags("");
+      setLengthInMin(0);
+      setType("");
+      setStartDate(null);
+      setEmptyDate(null);
+      setSizeInFlOz(0);
+      setActiveIngredients(0);
 
     const payload = {
       userId: sessionUser.id,
@@ -110,6 +127,8 @@ function SliderMenu() {
 
         <div className="add-product-form-card">
         <input type="hidden" name="_csrf" value="csrfToken" />
+
+
           <input type="text"
           placeholder="name of product"
           value={singleStep}
@@ -124,10 +143,14 @@ function SliderMenu() {
           value="morning" />
           <label for="morning">morning</label> 
           </div>
+
+
           <div className="add-product-form-card">
           <input type="checkbox" id="evening" name="evening" value="evening"></input>
           <label for="evening">evening</label>
           </div>
+
+          
           <p className="add-product-section-title">Which days?</p>
           <div className="add-product-form-card">
           <input type="checkbox" id="monday" name="monday" value="monday"></input>
