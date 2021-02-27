@@ -73,7 +73,7 @@ module.exports = (sequelize, DataTypes) => {
         }
         
       })
-      return;
+      return removed;
       
     }
 

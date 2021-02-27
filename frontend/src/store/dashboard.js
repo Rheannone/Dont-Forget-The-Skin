@@ -33,7 +33,7 @@ export const destroyTask = (id) => async (dispatch) => {
     if (response.ok) {
         console.log("from the store, here is the response", response)
         const newList = await response.json();
-        dispatch(setList(newList))
+        dispatch(deleteTask(newList))
     }
 }
 
@@ -71,7 +71,7 @@ export const getList = (userId) => async dispatch => {
     const res = await csrfFetch(`/api/dashboard/${userId}`);
     if (res.ok){
     const data = await res.json();
-    console.log("FROM FETCH", data.list) 
+    // console.log("FROM FETCH", data.list) 
     dispatch(setList(data.list))
     return res;
     }
@@ -84,6 +84,8 @@ const initialState = {
 function dashboardReducer(state = initialState, action) {
     switch(action.type) {
         case SET_LIST:
+            console.log("from reducer.....", action.list)
+
             const allDash = {};
             action.list.forEach(item => {
                 allDash[item.id] = item
@@ -98,13 +100,11 @@ function dashboardReducer(state = initialState, action) {
                     ...state,
                     [action.task.id]: action.task
                 };
-                newState.list.push(action.task)
-                console.log("newstate", newState)
-            
+                newState.list.push(action.task)            
             return newState;
         }
         case DELETE_TASK :{
-            const newerList = state.filter(item => item.id !== action.payload)
+            const newerList = state.list.filter(item => item.id !== action.payload)
             return newerList
         }
         default:

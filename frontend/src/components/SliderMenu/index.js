@@ -54,6 +54,7 @@ function SliderMenu() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+      // setMenu("closed")
       setSingleStep("")
       setMorning(false);
       setNight(false);
@@ -94,7 +95,7 @@ function SliderMenu() {
     };
 
 
-    const step = await dispatch(createTask(payload, sessionUser.id));
+     await dispatch(createTask(payload, sessionUser.id));
    
   }
 
@@ -111,6 +112,7 @@ function SliderMenu() {
   const obtnStyle = {
     visibility: menu === 'open' ? "hidden" : "visible",
   };
+  
 
   return (
     <>
@@ -141,7 +143,7 @@ function SliderMenu() {
           id="morning"
           name="morning"
           value={morning}
-          onChange={(e) => setMorning(true)}
+          onClick={(e) => setMorning(!morning)}
           checked={morning === true ? true : false}
           
            />
@@ -154,7 +156,7 @@ function SliderMenu() {
           id="evening" 
           name="evening" 
           value={night}
-          onChange={(e) => setNight(true)}
+          onClick={(e) => setNight(!night)}
           checked={night === true ? true : false}
           />
           <label for="evening">evening</label>
@@ -163,31 +165,87 @@ function SliderMenu() {
           
           <p className="add-product-section-title">Which days?</p>
           <div className="add-product-form-card">
-          <input type="checkbox" id="monday" name="monday" value="monday"></input>
+          <input type="checkbox"
+          id="monday"
+          name="monday"
+          value={false}
+          onClick={(e) => setMon(!mon)}
+          checked={mon === true ? true : false}
+          />
           <label for="monday">monday</label>
           </div>
+
+
           <div className="add-product-form-card">
-          <input type="checkbox" id="tuesday" name="tuesday" value="tuesday"></input>
+          <input type="checkbox" 
+          id="tuesday" 
+          name="tuesday" 
+          value={tues} 
+          onClick={(e) => setTues(!tues)}
+          checked={tues === true ? true : false}
+          />
           <label for="tuesday">tuesday</label>
           </div>
+
+
           <div className="add-product-form-card">
-          <input type="checkbox" id="wednesday" name="wednesday" value="wednesday"></input>
+          <input type="checkbox" 
+          id="wednesday" 
+          name="wednesday" 
+          value={wed}
+          onClick={(e) => setWed(!wed)}
+          checked={wed === true? true : false}
+          />
           <label for="wednesday">wednesday</label>
           </div>
+
+
           <div className="add-product-form-card">
-          <input type="checkbox" id="thursday" name="thursday" value="thursday"></input>
+          <input type="checkbox" 
+          id="thursday" 
+          name="thursday" 
+          value={thur}
+          onClick={(e) => setThur(!thur)}
+          checked={thur === true ? true : false}
+          />
           <label for="thursday">thursday</label>
           </div>
+
+
           <div className="add-product-form-card">
-          <input type="checkbox" id="friday" name="friday" value="friday"></input>
+          <input type="checkbox" 
+          id="friday" 
+          name="friday" 
+          value={fri}
+          onClick={(e) => setThur(!fri)}
+          checked={fri === true ? true : false}
+          />
           <label for="friday">friday</label>
           </div>
+
+
+
           <div className="add-product-form-card">
-          <input type="checkbox" id="saturday" name="saturday" value="saturday"></input>
+          <input type="checkbox" 
+          id="saturday" 
+          name="saturday" 
+          value={sat}
+          onClick={(e) => setThur(!sat)}
+          checked={sat === true ? true : false} 
+          />
           <label for="saturday">saturday</label>
           </div>
+
+
+
           <div className="add-product-form-card">
-          <input type="checkbox" id="sunday" name="sunday" value="sunday"></input>
+          <input type="checkbox"
+          id="sunday"
+          name="sunday"
+          value={sun}
+          onClick={(e) => setSun(!sun)}
+          checked={sun === true ? true : false}
+          />
           <label for="sunday">sunday</label>
           </div>
         </form>

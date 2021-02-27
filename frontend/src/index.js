@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider as ReduxProvider } from 'react-redux';
 import App from './App';
-import MenuProvider from './context/MenuContext'
+import MenuProvider from './context/MenuContext';
+import ListProvider from './context/ListContext';
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { restoreCSRF, csrfFetch } from '../src/store/csrf';
@@ -23,11 +24,13 @@ if (process.env.NODE_ENV !== 'production') {
 function Root() {
   return (
     <MenuProvider>
+      <ListProvider>
      <ReduxProvider store={store}>
        <BrowserRouter>
          <App />
        </BrowserRouter>
       </ReduxProvider>
+      </ListProvider>
     </MenuProvider>
   );
 }

@@ -8,11 +8,13 @@ const router = express.Router();
 
 router.delete('/task/:taskId', restoreUser, asyncHandler(async function(req, res) {
     const id = req.params.taskId;
-    console.log("from routes/api this is req.params.....",req.params)
-    console.log("from routes/api this is req.params.taskId.....",req.params.taskId)
-
-    // { taskId: '29' }
-    const newList = await Task.delete(id)
+    const delTask = await Task.findByPk(id)
+    const newList = await Task.destroy({
+        where:{
+            id
+          }
+          
+    })
     setTokenCookie(res, req.user);
     return res.json(newList)
 }))

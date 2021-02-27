@@ -3,6 +3,7 @@ import {useHistory} from 'react-router-dom'
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMenu } from '../../context/MenuContext';
+import {list, useList} from '../../context/ListContext';
 import { Redirect } from 'react-router-dom';
 import { getList, destroyTask } from '../../store/dashboard';
 import SliderMenu from '../SliderMenu';
@@ -12,29 +13,28 @@ function Dashboard() {
   const dispatch = useDispatch();
   const history = useHistory();
   const { menuState, setMenu } = useMenu()
+  const {list, setList } = useList()
   const sessionUser = useSelector(state => state.session.user);
   const taskItems = useSelector(state => state.dashboard.list)
-  const taskItemsArray = Object.values(taskItems)
+  const taskItemsArray = Object.values(taskItems);
 
-  const handleDelete = (e) => {
-    e.preventDefault()
 
+    console.log("from component task items", taskItems)
+    const handleDelete = (e) => {
     dispatch(destroyTask(e.target.value))
-    dispatch(getList(sessionUser.id))
-
+    // dispatch(getList(sessionUser.id)) 
   }
 
-  useEffect(() => {
-
-  }, [])
 
 
+const length = taskItemsArray?.length
   useEffect(() => {
     if(!sessionUser.id){
       history.push("/login")
     } else {
+
     dispatch(getList(sessionUser.id))};
-  }, [dispatch]);
+  }, [dispatch, length]);
 
 
 
@@ -44,6 +44,7 @@ function Dashboard() {
 
   return (
     <>
+
     
     <div className="dashboard-container">
     <SliderMenu />
