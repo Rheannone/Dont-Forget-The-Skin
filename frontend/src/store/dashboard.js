@@ -31,7 +31,6 @@ export const destroyTask = (id) => async (dispatch) => {
         method: 'delete',
     });
     if (response.ok) {
-        console.log("from the store, here is the response", response)
         const newList = await response.json();
         dispatch(deleteTask(newList))
     }

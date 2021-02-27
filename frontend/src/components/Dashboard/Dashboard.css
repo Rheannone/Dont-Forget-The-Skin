@@ -1,9 +1,9 @@
 .dashboard-container {
     position:absolute;
     width: 100%;
-
     top: 40px;
-
     color: black;
     background-color: #ffe7f0;
+    transition: 0.5s; 
+
 }

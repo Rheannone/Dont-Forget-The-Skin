@@ -12,7 +12,7 @@ import './Dashboard.css'
 function Dashboard() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const { menuState, setMenu } = useMenu()
+  const { menu, setMenu } = useMenu()
   // const {list, setList } = useList()
   const sessionUser = useSelector(state => state.session.user);
   const taskItems = useSelector(state => state.dashboard.list)
@@ -47,11 +47,16 @@ console.log("length", length)
     <Redirect to="/login" />
   );
 
+  const dashboardContainer = {
+    left: (menu === 'open' ? "500px" : "0"),
+  };
+
   return (
     <>
 
     
-    <div className="dashboard-container">
+    <div className="dashboard-container"
+    style={dashboardContainer}>
     <SliderMenu />
     Hello, {sessionUser.username}
     <h1>List Items</h1>
@@ -63,7 +68,11 @@ console.log("length", length)
         
         
       ) )}
+      
     </ul> )}
+
+    <p>Monday Routine</p>
+        
     
     </div>
     </>

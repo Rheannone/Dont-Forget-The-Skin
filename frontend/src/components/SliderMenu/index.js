@@ -105,7 +105,7 @@ function SliderMenu() {
   );
 
   const divStyle = {
-    width: menu === 'open' ? "250px" : "0px",
+    width: menu === 'open' ? "500px" : "0px",
   };
 
   const obtnStyle = {
