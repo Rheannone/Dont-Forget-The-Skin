@@ -36,6 +36,7 @@
   .openbtn {
     position: relative;
     top: -40px;
+    left: -250px;
     font-size: 15px;
     cursor: pointer;
     background-color: pink;

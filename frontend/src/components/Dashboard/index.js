@@ -3,7 +3,6 @@ import {useHistory} from 'react-router-dom'
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMenu } from '../../context/MenuContext';
-import {list, useList} from '../../context/ListContext';
 import { Redirect } from 'react-router-dom';
 import { getList, destroyTask } from '../../store/dashboard';
 import SliderMenu from '../SliderMenu';
@@ -13,12 +12,9 @@ function Dashboard() {
   const dispatch = useDispatch();
   const history = useHistory();
   const { menu, setMenu } = useMenu()
-  // const {list, setList } = useList()
+  // const {listRefresh, setListRefresh} = useMenu()
   const sessionUser = useSelector(state => state.session.user);
   const taskItems = useSelector(state => state.dashboard.list)
-  console.log("from component taskitems", taskItems);
-  // const taskItemsArray = Object.values(taskItems);
-  // console.log("from component taskitemsArray", taskItemsArray);
 
 
 
@@ -28,10 +24,7 @@ function Dashboard() {
   }
 
 
-
 const length = taskItems?.length
-console.log("length", length)
-
 
   useEffect(() => {
     if(!sessionUser.id){
@@ -58,6 +51,7 @@ console.log("length", length)
     <div className="dashboard-container"
     style={dashboardContainer}>
     <SliderMenu />
+    <div className="routine-container">
     Hello, {sessionUser.username}
     <h1>List Items</h1>
 
@@ -70,6 +64,8 @@ console.log("length", length)
       ) )}
       
     </ul> )}
+
+    </div>
 
     <p>Monday Routine</p>
         

@@ -6,12 +6,15 @@ export const useMenu = () => useContext(MenuContext);
 
 export default function MenuProvider({ children }) {
   const [menu, setMenu] = useState('open');
+  const [listRefresh, setListRefresh] = useState("default")
 
   return (
     <MenuContext.Provider
       value={{
         menu,
-        setMenu
+        setMenu,
+        listRefresh,
+        setListRefresh
       }}
     >
       {children}

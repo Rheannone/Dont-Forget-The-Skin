@@ -11,7 +11,8 @@ import './SliderMenu.css'
 function SliderMenu() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const { menu, setMenu } = useMenu()
+  const { menu, setMenu } = useMenu();
+  const {listRefresh, setListRefresh} = useMenu();
   const WholeMenu = useMenu()
   const sessionUser = useSelector(state => state.session.user);
   const taskItems = useSelector(state => state.dashboard.list)
@@ -52,8 +53,9 @@ function SliderMenu() {
   const isIngredients = (e) => setActiveIngredients(e.target.value)
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-      // setMenu("closed")
+      e.preventDefault();
+      // setMenu('closed')
+      setListRefresh("updated")
       setSingleStep("")
       setMorning(false);
       setNight(false);
@@ -134,7 +136,8 @@ function SliderMenu() {
           placeholder="name of product"
           value={singleStep}
           onChange={updateStep} />
-          <button type="submit">Add A Step</button>
+          <button type="button" onClick={handleSubmit}>Add A Step</button>
+          <a href="javascript:void(0)"  onClick={() => setMenu('closed')}>Update Your List</a>
           </div>
 
           <div className="add-product-form-card">
