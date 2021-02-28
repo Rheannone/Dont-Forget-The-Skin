@@ -88,10 +88,13 @@
 
   .form-start {
     position: relative;
-
     top: 50px
   }
 
+  .checkbox-container {
+    position: relative;
+    top: 60px;
+  }
 
   .add-product-div {
     box-sizing: border-box;

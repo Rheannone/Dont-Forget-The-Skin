@@ -146,10 +146,11 @@ function SliderMenu() {
 
           <div className="button-container">
           <button type="button" className="slider-btn" onClick={handleSubmit}>Save</button>
-          <a href="javascript:void(0)" className="slider-btn"  onClick={() => setMenu('closed')}>+</a>
+          <button type="button" className="slider-btn"  onClick={() => setMenu('closed')}>Close</button>
           </div>
           </div>
-
+        <div className="checkbox-container">
+        <p>optional:</p>
         <div className="add-product-form-card">
           
           <input type="checkbox"
@@ -263,9 +264,9 @@ function SliderMenu() {
           onChange={(e) => setSun(!sun)}
           checked={sun === true ? true : false}
           />
-          <label className="add-label"  htmlFor="sunday">sunday</label >
+
           </div>
-        
+          </div>
         
         </form>
         </div>
