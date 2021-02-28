@@ -52,7 +52,7 @@ function SliderMenu() {
   const isSize = (e) => setSizeInFlOz(e.target.value)
   const isIngredients = (e) => setActiveIngredients(e.target.value)
 
-  const handleSubmit = async (e) => {
+  let handleSubmit = async (e) => {
       e.preventDefault();
       // setMenu('closed')
       setListRefresh("updated")
@@ -74,7 +74,7 @@ function SliderMenu() {
       setSizeInFlOz(0);
       setActiveIngredients(0);
 
-    const payload = {
+    let payload = {
       userId: sessionUser.id,
       singleStep,
       tags,
@@ -125,80 +125,95 @@ function SliderMenu() {
     >
         <a href="javascript:void(0)" className="closebtn" onClick={() => setMenu('closed')}>&times;</a>
         <div className="add-product-div">
+          <div className="titles-conatiner">
         <h3 className="add-product-section-title">Add a Step</h3>
-        <form onSubmit={handleSubmit}>
+        <h3 className="add-product-section-title">Days</h3>
+        </div>
 
-        <div className="add-product-form-card">
+        <div className="form-container">
+        <form>
+        
+        <div className="form-start">
         <input type="hidden" name="_csrf" value="csrfToken" />
 
+        
 
           <input type="text"
+          className="quick-submit-input"
           placeholder="name of product"
           value={singleStep}
           onChange={updateStep} />
-          <button type="button" onClick={handleSubmit}>Add A Step</button>
-          <a href="javascript:void(0)"  onClick={() => setMenu('closed')}>Update Your List</a>
+
+          <div className="button-container">
+          <button type="button" className="slider-btn" onClick={handleSubmit}>Save</button>
+          <a href="javascript:void(0)" className="slider-btn"  onClick={() => setMenu('closed')}>+</a>
+          </div>
           </div>
 
-          <div className="add-product-form-card">
+        <div className="add-product-form-card">
+          
           <input type="checkbox"
           id="morning"
           name="morning"
           value={morning}
-          onClick={(e) => setMorning(!morning)}
+          onChange={(e) => setMorning(!morning)}
           checked={morning === true ? true : false}
-          
            />
-          <label for="morning">morning</label> 
-          </div>
+           <label className="add-label" htmlFor="morning">morning</label >
+           </div>
+
+        <div className="add-product-form-card">
+        
 
 
-          <div className="add-product-form-card">
           <input type="checkbox" 
           id="evening" 
           name="evening" 
           value={night}
-          onClick={(e) => setNight(!night)}
+          onChange={(e) => setNight(!night)}
           checked={night === true ? true : false}
           />
-          <label for="evening">evening</label>
+          <label className="add-label"htmlFor="evening">evening</label >
           </div>
 
           
-          <p className="add-product-section-title">Which days?</p>
-          <div className="add-product-form-card">
+          <div className="add-product-div">
+
           <input type="checkbox"
           id="monday"
           name="monday"
           value={false}
-          onClick={(e) => setMon(!mon)}
+          onChange={(e) => setMon(!mon)}
           checked={mon === true ? true : false}
           />
-          <label for="monday">monday</label>
+          <label className="add-label"  htmlFor="monday">monday</label >
           </div>
+          {/* </div> */}
 
 
-          <div className="add-product-form-card">
+          {/* <div className="add-product-form-card"> */}
+          <div className="add-product-div">
+
           <input type="checkbox" 
           id="tuesday" 
           name="tuesday" 
           value={tues} 
-          onClick={(e) => setTues(!tues)}
+          onChange={(e) => setTues(!tues)}
           checked={tues === true ? true : false}
           />
-          <label for="tuesday">tuesday</label>
+          <label className="add-label" htmlFor="tuesday">tuesday</label >
           </div>
-
+          {/* </div> */}
 
           <div className="add-product-form-card">
           <input type="checkbox" 
           id="wednesday" 
           name="wednesday" 
           value={wed}
-          onClick={(e) => setWed(!wed)}
+          onChange={(e) => setWed(!wed)}
           checked={wed === true? true : false}
           />
-          <label for="wednesday">wednesday</label>
+          <label className="add-label"  htmlFor="wednesday">wednesday</label >
           </div>
 
 
@@ -207,10 +222,10 @@ function SliderMenu() {
           id="thursday" 
           name="thursday" 
           value={thur}
-          onClick={(e) => setThur(!thur)}
+          onChange={(e) => setThur(!thur)}
           checked={thur === true ? true : false}
           />
-          <label for="thursday">thursday</label>
+          <label className="add-label"  htmlFor="thursday">thursday</label >
           </div>
 
 
@@ -219,10 +234,10 @@ function SliderMenu() {
           id="friday" 
           name="friday" 
           value={fri}
-          onClick={(e) => setThur(!fri)}
+          onChange={(e) => setFri(!fri)}
           checked={fri === true ? true : false}
           />
-          <label for="friday">friday</label>
+          <label className="add-label"  htmlFor="friday">friday</label >
           </div>
 
 
@@ -232,10 +247,10 @@ function SliderMenu() {
           id="saturday" 
           name="saturday" 
           value={sat}
-          onClick={(e) => setThur(!sat)}
+          onChange={(e) => setSat(!sat)}
           checked={sat === true ? true : false} 
           />
-          <label for="saturday">saturday</label>
+          <label className="add-label"  htmlFor="saturday">saturday</label >
           </div>
 
 
@@ -245,14 +260,20 @@ function SliderMenu() {
           id="sunday"
           name="sunday"
           value={sun}
-          onClick={(e) => setSun(!sun)}
+          onChange={(e) => setSun(!sun)}
           checked={sun === true ? true : false}
           />
-          <label for="sunday">sunday</label>
+          <label className="add-label"  htmlFor="sunday">sunday</label >
           </div>
+        
+        
         </form>
         </div>
-    </div>
+        </div>
+           
+          </div>
+          
+        
 
   <div id="main-menu"
     style={{marginLeft: menu === "open" ? "0px" : "250px" }}

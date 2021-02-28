@@ -1,5 +1,6 @@
 
 .sidebar {
+    box-sizing: border-box;
     height: 100%;
     width: 0; 
     position: fixed;
@@ -8,7 +9,7 @@
     left: 0;
     background-color: pink; 
     overflow-x: hidden; 
-    padding-top: 60px; 
+    padding-top: 0px; 
     transition: 0.5s; 
   }
   
@@ -49,10 +50,46 @@
     background-color: #ffe7f0;
   }
   
+  .button-container {
+    display: flex;
+    flex-direction: row;
+  }
+  .slider-btn {
+    font-family: 'Roboto', sans-serif;
+    border: 2px solid transparent;
+    background-color: #FCBAD3;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 10px 0;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: 0.25s;
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  .slider-btn:hover {
+    background-color: pink;
+    cursor: pointer;
+  }
   
   @media screen and (max-height: 450px) {
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
+  }
+
+  .form-container {
+    width: 50%;
+    margin: 10px;
+  }
+
+
+  .form-start {
+    position: relative;
+
+    top: 50px
   }
 
 
@@ -60,24 +97,45 @@
     box-sizing: border-box;
     margin: 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+   
   }
 
   .add-product-form-card {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
     margin:5px;
     background-color: pink;
     border-color: #bbb;
-    width: 100%;
+    width: 70px;
+    height: 70px;
     align-content: center;
+    margin: 10px;
   }
 
+  .add-label {
+    top: 0px;
+    padding-left: 5em;
+    display: flex;
+    right: 0px;
+    align-items:flex-start;
+  
+  }
+
+  .titles-container{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden
+  }
   .add-product-section-title {
     text-align: center;
     font-family: 'Yeseva One', cursive;
     color: white;
+    font-size: 3em;
   }
 
-  /* Base for label styling */
   [type="checkbox"]:not(:checked),
   [type="checkbox"]:checked {
     position: absolute;
@@ -87,36 +145,35 @@
 
   [type="checkbox"]:checked + label {
     position: relative;
-    padding-left: 2.3em;
+    /* padding-left: 2.3em; */
     font-size: 1.05em;
-    line-height: 3;
-    cursor: pointer;
+    line-height: 3em;
+    margin: .5em;
+    cursor:crosshair;
   }
 
-  /* checkbox aspect */
   [type="checkbox"]:not(:checked) + label:before,
   [type="checkbox"]:checked + label:before {
     content: '';
     position: absolute;
     left: 5px;
     top: 0;
-    width: 1.4em;
-    height: 1.4em;
-    background: whitesmoke;
+    width: 3em;
+    height: 3em;
+    background: #ffabab;
     border-radius: .2em;
     box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 rgba(203, 34, 237, .2);
     -webkit-transition: all .275s;
         transition: all .275s;
   }
 
-  /* checked mark aspect */
   [type="checkbox"]:not(:checked) + label:after,
   [type="checkbox"]:checked + label:after {
     content: '💖';
     position: absolute;
-    top: .8em;
-    left: .45em;
-    font-size: 1em;
+    top: .65em;
+    left: .2em;
+    font-size: 2.5em;
     color: #CB22ED;
     line-height: 0;
     -webkit-transition: all .2s;
