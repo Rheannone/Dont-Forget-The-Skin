@@ -8,9 +8,9 @@
     top: 0;
     left: 0;
     background-color: pink; 
-    overflow-x: hidden; 
     padding-top: 0px; 
     transition: 0.5s; 
+    overflow: scroll;
   }
   
   .sidebar a {
@@ -51,8 +51,10 @@
   }
   
   .button-container {
+    margin: 5px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
   }
   .slider-btn {
     font-family: 'Roboto', sans-serif;
@@ -73,6 +75,10 @@
   .slider-btn:hover {
     background-color: pink;
     cursor: pointer;
+  }
+
+  .slider-btn:active {
+    background-color: hotpink;
   }
   
   @media screen and (max-height: 450px) {
@@ -101,8 +107,9 @@
     margin: 10px;
     display: flex;
     flex-direction: row;
-   
   }
+
+  
 
   .add-product-form-card {
     display: flex;
@@ -127,10 +134,8 @@
   }
 
   .titles-container{
-    position: fixed;
     display: flex;
     flex-direction: row;
-    overflow-y: hidden
   }
   .add-product-section-title {
     text-align: center;

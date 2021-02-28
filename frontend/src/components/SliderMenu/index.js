@@ -114,6 +114,8 @@ function SliderMenu() {
     visibility: menu === 'open' ? "hidden" : "visible",
   };
   
+  let handleScroll = () => {
+  }
 
   return (
     <>
@@ -121,14 +123,24 @@ function SliderMenu() {
     <div id="mySidebar" 
     className="sidebar"
     style={divStyle}
+    onScroll={handleScroll}
     
     >
         <a href="javascript:void(0)" className="closebtn" onClick={() => setMenu('closed')}>&times;</a>
         <div className="add-product-div">
           <div className="titles-conatiner">
         <h3 className="add-product-section-title">Add a Step</h3>
-        <h3 className="add-product-section-title">Days</h3>
+        <hr width="1" size="15" />
+
+        <p className="add-product-section-title">time</p>
+        <hr width="1" size="45" />
+        <p className="add-product-section-title">days</p>
+        <hr width="1" size="290" />
+        <p className="add-product-section-title">type</p>
+
         </div>
+        
+
 
         <div className="form-container">
         <form>
@@ -149,6 +161,9 @@ function SliderMenu() {
           <button type="button" className="slider-btn"  onClick={() => setMenu('closed')}>Close</button>
           </div>
           </div>
+
+
+        
         <div className="checkbox-container">
         <p>optional:</p>
         <div className="add-product-form-card">
@@ -240,9 +255,6 @@ function SliderMenu() {
           />
           <label className="add-label"  htmlFor="friday">friday</label >
           </div>
-
-
-
           <div className="add-product-form-card">
           <input type="checkbox" 
           id="saturday" 
@@ -254,8 +266,6 @@ function SliderMenu() {
           <label className="add-label"  htmlFor="saturday">saturday</label >
           </div>
 
-
-
           <div className="add-product-form-card">
           <input type="checkbox"
           id="sunday"
@@ -264,10 +274,54 @@ function SliderMenu() {
           onChange={(e) => setSun(!sun)}
           checked={sun === true ? true : false}
           />
+          <label className="add-label"  htmlFor="sunday">sunday</label >
+          </div>
 
+          <label>
+        <select value={type} onChange={(e) => setType(e.target.value)}>
+          
+            <option key={1} value={"oil cleanser"}>
+             1. oil cleanser
+            </option>
+            <option key={2} value={"water cleanser"}>
+             2. water cleanser
+            </option>
+            <option key={3} value={"toner"}>
+             3. toner
+            </option>
+            <option key={4} value={"essences"}>
+             4. essence
+            </option>
+            <option key={5} value={"serum"}>
+             5. serum
+            </option>
+            <option key={6} value={"eye cream"}>
+             6. eye cream
+            </option>
+            <option key={7} value={"moisturizer"}>
+             7. moisturizer
+            </option>
+            <option key={8} value={"exfoliators"}>
+             8. exfoliator
+            </option>
+            <option key={9} value={"sheetMask"}>
+             9. treatment / mask
+            </option>
+            <option key={10} value={"spf"}>
+             10. spf
+            </option>
+          
+          
+        </select>
+      </label>
+<div>
+      <div className="button-container">
+
+          <button type="button" className="slider-btn" onClick={handleSubmit}>Save</button>
+          <button type="button" className="slider-btn"  onClick={() => setMenu('closed')}>Close</button>
           </div>
           </div>
-        
+          </div>
         </form>
         </div>
         </div>
