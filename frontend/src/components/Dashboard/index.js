@@ -440,8 +440,13 @@ const length = taskItems?.length
       
     </ul>
    </div> : null}
+   <div style={{color: 'pink'}}>
+<h1>TESTING</h1>
+<h1>TESTING</h1>
+<h1>TESTING</h1>
 
-    </div>
+
+    </div></div>
     
 
     </div>
@@ -449,10 +454,22 @@ const length = taskItems?.length
 
     <div className="routine-container"
     style={movedCamera}>
-    <div className="progress-container"
-    style={movedCamera}>
-    <div className="progress-Cam">
-    <Webcam audio={false} ref={webcamRef} />
+    {/* <div className="progress-container"
+    style={movedCamera}> */}
+    <div className="progress-cam">
+      <h3>take a progress video</h3>
+    <Webcam audio={false} ref={webcamRef}
+    width="250"
+    height="250"
+    className="progress-cam"
+     style={{
+      width: '250px',
+      borderRadius: '50%',
+      objectFit: 'cover',
+      borderStyle: 'dashed',
+      borderColor: 'whitesmoke',
+      alignSelf: 'baseline'}}
+    />
       {capturing ? (
         <button onClick={handleStopCaptureClick}>Stop Capture</button>
       ) : (
@@ -464,7 +481,7 @@ const length = taskItems?.length
 
     </div>
     </div>
-    </div>
+    {/* </div> */}
     
     </>
   );
