@@ -50,9 +50,7 @@ function Navigation({ isLoaded }){
         {isLoaded && sessionLinks}
       </li>
     </ul>
-    <div className="dash-greeting">
-    Hello, {sessionUser?.username}.
-    </div>
+  
     </div>
     
   );

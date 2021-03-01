@@ -91,6 +91,7 @@ const length = taskItems?.length
 
   const movedCamera = {
     visibility: (menu !== 'open' ? "visible" : "hidden"),
+    transition: "5ms",
 
 
 
@@ -454,6 +455,10 @@ const length = taskItems?.length
 
     <div className="routine-container"
     style={movedCamera}>
+      <div className="control-right">
+        <div className="dash-greeting">
+    Hello, {sessionUser?.username}.<br></br>
+    </div>
     {/* <div className="progress-container"
     style={movedCamera}> */}
     <div className="progress-cam">
@@ -471,14 +476,15 @@ const length = taskItems?.length
       alignSelf: 'baseline'}}
     />
       {capturing ? (
-        <button onClick={handleStopCaptureClick}>Stop Capture</button>
+        <button className="cam-btn" onClick={handleStopCaptureClick}>Stop Capture</button>
       ) : (
-        <button onClick={handleStartCaptureClick}>Start Capture</button>
+        <button className="cam-btn" onClick={handleStartCaptureClick}>Start Capture</button>
       )}
       {recordedChunks.length > 0 && (
-        <button onClick={handleDownload}>Download</button>
+        <button className="cam-btn" onClick={handleDownload}>Download</button>
       )}
 
+    </div>
     </div>
     </div>
     {/* </div> */}

@@ -342,9 +342,6 @@ function SliderMenu() {
       onClick={() => setMenu('open')}
       
       >&#9776; +</button>
-       <div className="dash-greeting">
-    Hello, {sessionUser.username}.
-    </div>
 </div>
 </>
     )
