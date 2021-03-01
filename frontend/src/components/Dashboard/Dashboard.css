@@ -5,12 +5,24 @@
     color: black;
     background-color: #ffe7f0;
     transition: 0.5s; 
-
 }
 
 .routine-container {
     width: 40%;
     height: 100%;
+    margin: 10px;
     background-color: pink;
     border-radius: 5px;
+}
+
+.delete-btn {
+    /* visibility: hidden; */
+}
+
+.product-list {
+    list-style: none;
+}
+
+.delete-btn:hover {
+    visibility: visible;
 }
