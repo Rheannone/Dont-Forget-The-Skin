@@ -43,13 +43,18 @@ function Navigation({ isLoaded }){
 
   return (
     <div className="navbar-body">
+      
     <ul>
       <li>
         <NavLink exact to="/">Home</NavLink>
         {isLoaded && sessionLinks}
       </li>
     </ul>
+    <div className="dash-greeting">
+    Hello, {sessionUser?.username}.
     </div>
+    </div>
+    
   );
 }
 

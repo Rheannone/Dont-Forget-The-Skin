@@ -331,7 +331,9 @@ function SliderMenu() {
         
 
   <div id="main-menu"
-    style={{marginLeft: menu === "open" ? "0px" : "250px" }}
+    style={
+      {marginLeft: menu === "open" ? "0px" : "250px", transition: "inherit" }
+    }
   >
       <button 
       className="openbtn" 
@@ -340,6 +342,9 @@ function SliderMenu() {
       onClick={() => setMenu('open')}
       
       >&#9776; +</button>
+       <div className="dash-greeting">
+    Hello, {sessionUser.username}.
+    </div>
 </div>
 </>
     )

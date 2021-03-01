@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Yeseva+One&display=swap');
+
+
 .dashboard-container {
     position:absolute;
     width: 100%;
@@ -5,22 +8,70 @@
     color: black;
     background-color: #ffe7f0;
     transition: 0.5s; 
+    
 }
 
 .routine-container {
-    width: 40%;
+    position: fixed;
+    margin: 10px;
+    padding: 10px;
+    right: 0px;
+    top: 155px;
+    width: 45%;
     height: 100%;
     margin: 10px;
     background-color: pink;
     border-radius: 5px;
+    transition: inherit;
 }
+
+.list-container {
+    position: fixed;
+    margin: 10px;
+    padding: 10px;
+    width: 45%;
+    height: 100%;
+    margin: 10px;
+    background-color: pink;
+    border-radius: 5px;
+
+}
+
+.progress-container {
+        top: 0px;
+        right: 0px;
+        margin: 10px;
+        padding: 10px;
+        width: 40%;
+        height: 100%;
+        margin: 10px;
+        border-radius: 5px;
+    
+    
+}
+
 
 .delete-btn {
     /* visibility: hidden; */
 }
 
+
+
+.dash-greeting {
+    padding: 10px;
+    font-family: 'Yeseva One', cursive;
+    font-size: 3em;
+    color: pink;
+    text-transform: capitalize;
+    text-shadow: 3px 3px 0px hotpink;
+    
+}
+
+
+
 .product-list {
     list-style: none;
+
 }
 
 .delete-btn:hover {

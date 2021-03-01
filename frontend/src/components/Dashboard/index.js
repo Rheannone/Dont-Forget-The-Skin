@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import {useHistory} from 'react-router-dom'
 import * as sessionActions from '../../store/session';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector,  } from 'react-redux';
 import { useMenu } from '../../context/MenuContext';
 import { Redirect } from 'react-router-dom';
 import { getList, destroyTask } from '../../store/dashboard';
 import SliderMenu from '../SliderMenu';
+import Webcam from 'react-webcam'
 import './Dashboard.css'
 
 function Dashboard() {
@@ -14,7 +15,53 @@ function Dashboard() {
   const { menu, setMenu } = useMenu()
   const sessionUser = useSelector(state => state.session.user);
   const taskItems = useSelector(state => state.dashboard.list)
+  const webcamRef = React.useRef(null);
+  const mediaRecorderRef = React.useRef(null);
+  const [capturing, setCapturing] = React.useState(false);
+  const [recordedChunks, setRecordedChunks] = React.useState([]);
 
+  const handleStartCaptureClick = React.useCallback(() => {
+    setCapturing(true);
+    mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
+      mimeType: "video/webm"
+    });
+    mediaRecorderRef.current.addEventListener(
+      "dataavailable",
+      handleDataAvailable
+    );
+    mediaRecorderRef.current.start();
+  }, [webcamRef, setCapturing, mediaRecorderRef]);
+
+  const handleDataAvailable = React.useCallback(
+    ({ data }) => {
+      if (data.size > 0) {
+        setRecordedChunks((prev) => prev.concat(data));
+      }
+    },
+    [setRecordedChunks]
+  );
+
+  const handleStopCaptureClick = React.useCallback(() => {
+    mediaRecorderRef.current.stop();
+    setCapturing(false);
+  }, [mediaRecorderRef, webcamRef, setCapturing]);
+
+  const handleDownload = React.useCallback(() => {
+    if (recordedChunks.length) {
+      const blob = new Blob(recordedChunks, {
+        type: "video/webm"
+      });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      document.body.appendChild(a);
+      a.style = "display: none";
+      a.href = url;
+      a.download = "react-webcam-stream-capture.webm";
+      a.click();
+      window.URL.revokeObjectURL(url);
+      setRecordedChunks([]);
+    }
+  }, [recordedChunks]);
 
 
     const handleDelete = (e) => {
@@ -25,7 +72,7 @@ function Dashboard() {
 const length = taskItems?.length
 
   useEffect(() => {
-    if(!sessionUser.id){
+    if(!sessionUser?.id){
       history.push("/login")
     } else {
 
@@ -42,6 +89,13 @@ const length = taskItems?.length
     left: (menu === 'open' ? "500px" : "0"),
   };
 
+  const movedCamera = {
+    visibility: (menu !== 'open' ? "visible" : "hidden"),
+
+
+
+  }
+
   let getDay = () => {
     let d = new Date()
     let n = d.getDay()
@@ -50,6 +104,8 @@ const length = taskItems?.length
 
   let item;
 
+  
+
   return (
     <>
 
@@ -57,11 +113,10 @@ const length = taskItems?.length
     <div className="dashboard-container"
     style={dashboardContainer}>
     <SliderMenu />
-    <div className="dash-greeting">
-    Hello, {sessionUser.username.toUpperCase()}
-    </div>
-    <div className="routine-container">
-   
+    <div>
+    
+      <div className="list-container">
+    
     {(getDay() === 0) ? <div><div><h1>Today's Routine</h1></div>{(taskItems?.length === 0 ? <p>start your skincare journey. click the '+' to add your first step</p> :<ul>
     <h4>Morning</h4>
       {taskItems?.map(item =>(
@@ -387,11 +442,30 @@ const length = taskItems?.length
    </div> : null}
 
     </div>
-    <div className="stats-container">
-
+    
 
     </div>
     </div>
+
+    <div className="routine-container"
+    style={movedCamera}>
+    <div className="progress-container"
+    style={movedCamera}>
+    <div className="progress-Cam">
+    <Webcam audio={false} ref={webcamRef} />
+      {capturing ? (
+        <button onClick={handleStopCaptureClick}>Stop Capture</button>
+      ) : (
+        <button onClick={handleStartCaptureClick}>Start Capture</button>
+      )}
+      {recordedChunks.length > 0 && (
+        <button onClick={handleDownload}>Download</button>
+      )}
+
+    </div>
+    </div>
+    </div>
+    
     </>
   );
   

@@ -34,6 +34,10 @@
     margin-left: 50px;
   }
   
+
+  .main-menu {
+    transition: 5s;
+  }
   .openbtn {
     position: relative;
     top: -40px;
@@ -142,6 +146,8 @@
     font-family: 'Yeseva One', cursive;
     color: white;
     font-size: 3em;
+    text-shadow: 3px 3px 0px hotpink;
+
   }
 
   [type="checkbox"]:not(:checked),
