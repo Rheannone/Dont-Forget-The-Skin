@@ -132,3 +132,12 @@
 .delete-btn:hover {
     visibility: visible;
 }
+
+
+.today-title {
+    text-align: center;
+    font-family: 'Yeseva One', cursive;
+    color: white;
+    font-size: 3em;
+    text-shadow: 3px 3px 0px hotpink;
+  }

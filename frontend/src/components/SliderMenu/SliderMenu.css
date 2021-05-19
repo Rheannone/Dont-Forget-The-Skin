@@ -147,7 +147,6 @@
     color: white;
     font-size: 3em;
     text-shadow: 3px 3px 0px hotpink;
-
   }
 
   [type="checkbox"]:not(:checked),
