@@ -25,6 +25,20 @@ function LoginFormPage() {
         if (data && data.errors) setErrors(data.errors);
       });
   }
+
+
+  const demoLogin = (e) => {
+    setCredential('demo@user.io')
+    setPassword('password')
+    e.preventDefault()
+    setErrors([])
+    return dispatch(sessionActions.login({ credential, password }))
+    .catch(async (res) => {
+      console.log(res)
+      const data = await res.json();
+      if (data && data.errors) setErrors(data.errors);
+    });
+  }
   let video;
   let canvas; 
   let context; 
@@ -93,6 +107,7 @@ function LoginFormPage() {
       <button className="btn" type="submit">Log In</button>
       <p><a href="/signup">or click here to create an account</a></p>
     </form>
+      <button className="btn" type="button" onClick={demoLogin}>Demo Login</button>
     
     </div>
     </div>
