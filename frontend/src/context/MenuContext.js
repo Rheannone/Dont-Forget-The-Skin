@@ -5,7 +5,7 @@ export const MenuContext = createContext();
 export const useMenu = () => useContext(MenuContext);
 
 export default function MenuProvider({ children }) {
-  const [menu, setMenu] = useState('closed');
+  const [menu, setMenu] = useState('open');
   const [listRefresh, setListRefresh] = useState("default")
 
   return (
