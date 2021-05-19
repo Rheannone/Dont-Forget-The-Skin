@@ -11,3 +11,8 @@ p {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
 };
+
+.react-tooltip-lite {
+    background: #333;
+    color: white;
+  }

@@ -162,3 +162,7 @@
       text-align:center;
     }
 
+    .react-tooltip-lite {
+      background: #333;
+      color: white;
+    }

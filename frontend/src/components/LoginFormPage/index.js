@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Webcam from "react-webcam";
+import Tooltip from 'react-tooltip-lite';
 import './LoginForm.css'
 
 function LoginFormPage() {
@@ -26,6 +27,7 @@ function LoginFormPage() {
       });
   }
 
+  navigator.mediaDevices.getUserMedia !== undefined ? console.log(navigator.mediaDevices.getUserMedia) : console.log(false)
 
   const demoLogin = (e) => {
     setCredential('demo@user.io')
@@ -62,6 +64,7 @@ function LoginFormPage() {
       <div className="login-screen">
       
         <form className="login-form" onSubmit={handleSubmit}>
+        <Tooltip direction="up" forceDirection content="Make sure your webcam is enabled">
         <Webcam
           audio={false}
           screenshotFormat="image/jpeg"
@@ -75,6 +78,7 @@ function LoginFormPage() {
 
           }}
         />
+        </Tooltip>
             {(!errors.length > 0) ? <div className="login-title">Login</div> : 
         <div className="signup-title">Woops! <div className="error-list">
                 {errors.map((error, idx) => <p key={idx}>{error}</p>)}
@@ -106,8 +110,10 @@ function LoginFormPage() {
       </div>
       <button className="btn" type="submit">Log In</button>
       <p><a href="/signup">or click here to create an account</a></p>
+
     </form>
       <button className="btn" type="button" onClick={demoLogin}>Demo Login</button>
+      
     
     </div>
     </div>
