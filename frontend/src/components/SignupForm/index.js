@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import GoogleLogin from 'react-google-login'
 import './SignupForm.css'
 
 function SignupFormPage() {
@@ -28,6 +29,22 @@ function SignupFormPage() {
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
+  const authGoogle = (googleUser) => {
+    console.log(googleUser.profileObj, "Google User Profile Obj")
+    const email = googleUser.profileObj.email
+    const username = googleUser.profileObj.givenName
+    const googleToken = googleUser.getAuthResponse().id_token;
+    const password = googleToken;
+    setErrors([])
+    
+    return dispatch(sessionActions.signup({ email, username, password }))
+    .catch(res => {
+      if (res.data && res.data.errors) setErrors(res.data.errors);
+    });
+
+  }
+
+
   return (
     <>
     <div className="landing-page-container">
@@ -49,7 +66,15 @@ function SignupFormPage() {
         <div className="signup-title">Woops! <div className="error-list">
         {errors.map((error, idx) => <p key={idx}>{error}</p>)}
       </div> </div> }
-        
+
+      <div> <GoogleLogin
+    clientId="622766758827-gh1ghhp6c880n96e571stc5gm34rsp96.apps.googleusercontent.com"
+    buttonText="Sign up with Google"
+    onSuccess={authGoogle}
+    onFailure={authGoogle}
+    cookiePolicy={'single_host_origin'}
+    /> </div>
+      <div><br></br><p>or</p></div>
       <div className="input-group">
       <label>
         <input
@@ -96,7 +121,7 @@ function SignupFormPage() {
       </label>
       </div>
       <button className="btn" type="submit">Sign Up</button>
-      <p><a href="/login">or click here to log in.</a></p>
+      <p><a href="/login">click here to log in.</a></p>
     </form>
     </div>
     </div>

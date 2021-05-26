@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Webcam from "react-webcam";
 import Tooltip from 'react-tooltip-lite';
+import GoogleLogin from 'react-google-login'
 import './LoginForm.css'
 
 function LoginFormPage() {
@@ -16,6 +17,17 @@ function LoginFormPage() {
   if (sessionUser) return (
     <Redirect to="/dashboard" />
   );
+
+  const authGoogle = (googleUser) => {
+    setErrors([]);
+    const credential = googleUser.profileObj.email
+    const googleToken = googleUser.getAuthResponse().id_token;
+    const password = googleToken;
+    return dispatch(sessionActions.login({ credential, password })) .catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) setErrors(data.errors);
+    });
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -84,6 +96,15 @@ function LoginFormPage() {
                 {errors.map((error, idx) => <p key={idx}>{error}</p>)}
                 </div>
             </div> }
+
+            <div> <GoogleLogin
+    clientId="622766758827-gh1ghhp6c880n96e571stc5gm34rsp96.apps.googleusercontent.com"
+    buttonText="Login With Google"
+    onSuccess={authGoogle}
+    onFailure={authGoogle}
+    cookiePolicy={'single_host_origin'}
+    /> </div>
+    <div><br></br><p>or</p></div>
       <div className="input-group">
       <label>
         <input
@@ -108,13 +129,13 @@ function LoginFormPage() {
         />
       </label>
       </div>
+      
       <button className="btn" type="submit">Log In</button>
-      <p><a href="/signup">or click here to create an account</a></p>
+      <p><a href="/signup">click here to create an account</a></p>
 
     </form>
       <button className="btn" type="button" onClick={demoLogin}>Demo Login</button>
       
-    
     </div>
     </div>
     </div>
