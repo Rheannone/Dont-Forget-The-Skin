@@ -99,7 +99,7 @@ function LoginFormPage() {
             <div> 
             <Tooltip tipContentClassName="react-tooltip-lite" direction="up" forceDirection content="This actually works!">
 <GoogleLogin
-    clientId="622766758827-gh1ghhp6c880n96e571stc5gm34rsp96.apps.googleusercontent.com"
+    clientId="591779555376-9qt0o8mgbrp9v1kvo7k04k3hpa7j8ddv.apps.googleusercontent.com"
     buttonText="Login With Google"
     onSuccess={authGoogle}
     onFailure={authGoogle}
