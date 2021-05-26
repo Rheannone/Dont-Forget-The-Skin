@@ -39,7 +39,6 @@ function LoginFormPage() {
       });
   }
 
-  navigator.mediaDevices.getUserMedia !== undefined ? console.log(navigator.mediaDevices.getUserMedia) : console.log(false)
 
   const demoLogin = (e) => {
     setCredential('demo@user.io')
