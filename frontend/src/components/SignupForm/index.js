@@ -68,7 +68,7 @@ function SignupFormPage() {
         {errors.map((error, idx) => <p key={idx}>{error}</p>)}
       </div> </div> }
 
-      <div>            <Tooltip direction="up" forceDirection content="This actually works!">
+      <div> <Tooltip direction="up" background="#333" forceDirection content="This actually works!">
  <GoogleLogin
     clientId="622766758827-gh1ghhp6c880n96e571stc5gm34rsp96.apps.googleusercontent.com"
     buttonText="Sign up with Google"
