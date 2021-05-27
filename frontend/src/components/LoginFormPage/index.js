@@ -135,9 +135,9 @@ function LoginFormPage() {
       <p><a href="/signup">click here to create an account</a></p>
 
     </form>
-    
+    <Tooltip tipContentClassName="react-tooltip-lite" direction="up" forceDirection content="Welcome to my first Full-Stack project!  ✨">
       <button className="btn" type="button" onClick={demoLogin}>Demo Login</button>
-      
+      </Tooltip> 
     </div>
     </div>
     </div>
