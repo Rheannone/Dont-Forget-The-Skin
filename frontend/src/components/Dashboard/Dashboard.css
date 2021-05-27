@@ -16,7 +16,8 @@
     position: fixed;
     display: flex;
     align-items: baseline;
-    flex-direction: column;
+    /* flex-direction: column; */
+    justify-content: center;
     margin: 10px;
     padding: 10px;
     right: 0px;
@@ -141,3 +142,12 @@
     font-size: 3em;
     text-shadow: 3px 3px 0px hotpink;
   }
+
+h3, ul {
+    color: white;
+}
+
+h3:hover {
+    background-color: hotpink;
+
+}
