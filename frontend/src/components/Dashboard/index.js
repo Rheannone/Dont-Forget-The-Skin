@@ -4,6 +4,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector,  } from 'react-redux';
 import { useMenu } from '../../context/MenuContext';
 import { Redirect } from 'react-router-dom';
+import Tooltip from 'react-tooltip-lite';
 import { getList, destroyTask } from '../../store/dashboard';
 import SliderMenu from '../SliderMenu';
 import Webcam from 'react-webcam'
@@ -57,7 +58,7 @@ function Dashboard() {
       document.body.appendChild(a);
       a.style = "display: none";
       a.href = url;
-      a.download = "react-webcam-stream-capture.webm";
+      a.download = `${new Date()} - dont-forget-the-face.webm`;
       a.click();
       window.URL.revokeObjectURL(url);
       setRecordedChunks([]);
@@ -459,8 +460,6 @@ const length = taskItems ? taskItems.length : null
         <div className="dash-greeting">
     Hello, {sessionUser?.username}.<br></br>
     </div>
-    {/* <div className="progress-container"
-    style={movedCamera}> */}
     <div className="progress-cam">
       <h3>take a progress video</h3>
     <Webcam audio={false} ref={webcamRef}
@@ -478,10 +477,14 @@ const length = taskItems ? taskItems.length : null
       {capturing ? (
         <button className="cam-btn" onClick={handleStopCaptureClick}>Stop Capture</button>
       ) : (
-        <button className="cam-btn" onClick={handleStartCaptureClick}>Start Capture</button>
+
+        <button className="cam-btn" onClick={handleStartCaptureClick}>        <Tooltip tipContentClassName="react-tooltip-lite" direction="up" forceDirection content="Click here to start recording">
+        Start Capture</Tooltip></button>
+   
       )}
       {recordedChunks.length > 0 && (
-        <button className="cam-btn" onClick={handleDownload}>Download</button>
+        <button className="cam-btn" onClick={handleDownload}>        <Tooltip tipContentClassName="react-tooltip-lite" direction="up" forceDirection content="Click and drag the file into your browser to play. I'm working on saving the encoded BLOB file to the Postgres database.">
+        Download</Tooltip></button>
       )}
 
     </div>
