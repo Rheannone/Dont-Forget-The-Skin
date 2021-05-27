@@ -12,12 +12,16 @@
     height: 40px;
 }
 
-
-.account-btn {
+.account-btn-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     grid-area: right;
+
+}
+.account-btn {
     background: transparent;
     border: 0px;
     color: #ffeaea;
     font-size: 20px;
-    padding: 20px;
 }

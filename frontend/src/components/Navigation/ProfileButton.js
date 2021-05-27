@@ -62,7 +62,9 @@ function ProfileButton({ user }) {
         trigger={['click']}
         overlay={menu}
         onVisibleChange={onVisibleChange}>
+        <div className="account-btn-cont">
         <button className="account-btn" style={{ width: 100 }}><i className="fas fa-cog"></i></button>
+        </div>
       </Dropdown>
     {showMenu && (
         <ul className="profile-dropdown">
