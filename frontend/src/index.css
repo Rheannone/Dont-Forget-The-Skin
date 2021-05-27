@@ -12,7 +12,13 @@ p {
     font-size: 14px;
 };
 
-
+.rc-dropdown-menu-item {
+    background: pink;
+}
+.rc-dropdown-menu{
+    background: transparent;
+    border:none;
+}
 
  /* .react-tooltip-lite {
     background: #333;

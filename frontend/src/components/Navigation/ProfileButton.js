@@ -59,6 +59,7 @@ function ProfileButton({ user }) {
     <div className="navbar-body">
 
       <Dropdown
+        className="rc-dropdown-menu"
         trigger={['click']}
         overlay={menu}
         onVisibleChange={onVisibleChange}>

@@ -14,6 +14,7 @@
 
 .account-btn-cont {
     display: flex;
+    border:none;
     flex-direction: column;
     justify-content: center;
     grid-area: right;
@@ -21,7 +22,7 @@
 }
 .account-btn {
     background: transparent;
-    border: 0px;
+    border: none;
     color: #ffeaea;
     font-size: 20px;
 }
