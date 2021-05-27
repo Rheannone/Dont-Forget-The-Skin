@@ -15,6 +15,7 @@ function Dashboard() {
   const { menu, setMenu } = useMenu()
   const sessionUser = useSelector(state => state.session.user);
   const taskItems = useSelector(state => state.dashboard.list)
+  const dash = useSelector(state => state.dashboard)
   const webcamRef = React.useRef(null);
   const mediaRecorderRef = React.useRef(null);
   const [capturing, setCapturing] = React.useState(false);
@@ -69,7 +70,7 @@ function Dashboard() {
   }
 
 
-const length = taskItems?.length
+const length = taskItems ? taskItems.length : null
 
   useEffect(() => {
     if(!sessionUser?.id){
@@ -77,7 +78,7 @@ const length = taskItems?.length
     } else {
 
     dispatch(getList(sessionUser.id))};
-  }, [dispatch, length]);
+  }, [dispatch, dash.length]);
 
 
 
@@ -118,7 +119,7 @@ const length = taskItems?.length
     
       <div className="list-container">
     
-    {(getDay() === 0) ? <div><div><h1 className="today-title">Today's Routine</h1></div>{(taskItems?.length === 0 ? <p>start your skincare journey. click the '+' to add your first step</p> :<ul>
+    {(getDay() === 0) ? <div><div><h1 className="today-title">Sunday's Routine</h1></div>{(taskItems?.length === 0 ? <p>start your skincare journey. click the '+' to add your first step</p> :<ul>
     <h4>Morning</h4>
       {taskItems?.map(item =>(
         <li key={item.id} className="product-list">{(item.sun === true && item.morning === true) ?  
@@ -306,12 +307,12 @@ const length = taskItems?.length
   
   
    </div> : null}
-   {(getDay() === 4) ? <div><div><h1>Thursday's Routine</h1></div>{(taskItems?.length === 0 ? <p>start your skincare journey. click the '+' to add your first step</p> :<ul>
+   {(getDay() === 4) ? <div><div><h1 className="today-title">Thursday's Routine</h1></div>{(taskItems?.length === 0 ? <p>start your skincare journey. click the '+' to add your first step</p> :<ul>
+     <h4 className="today-title">☀️☀️☀️</h4>
       {taskItems?.map(item =>(
         <li key={item.id} className="product-list">{(item.thur === true && item.morning === true) ?  
         <div>
           <div>
-          <h4>Morning</h4>
           {(item.morning === true) ? <div><h3>{item.singleStep}</h3>
           <h5>{item.type}</h5></div>  : null}
         
@@ -329,11 +330,12 @@ const length = taskItems?.length
     )
   } 
   <ul>
+    <h4 className="today-title">🌜🌝🌛</h4>
+
       {taskItems?.map(item =>(
         <li key={item.id} className="product-list">{(item.thur === true && item.night === true) ?  
         <div>
           <div>
-          <h4>Evening</h4>
           {(item.night === true) ? <div><h3>{item.singleStep}</h3>
           <h5>{item.type}</h5></div>  : null}
         
@@ -352,7 +354,7 @@ const length = taskItems?.length
   
   
    </div> : null}
-   {(getDay() === 5) ? <div><div><h1>Friday's Routine</h1></div>{(taskItems?.length === 0 ? <p>start your skincare journey. click the '+' to add your first step</p> :<ul>
+   {(getDay() === 5) ? <div><div><h1 className="today-title">Friday's Routine</h1></div>{(taskItems?.length === 0 ? <p>start your skincare journey. click the '+' to add your first step</p> :<ul>
       {taskItems?.map(item =>(
         <li key={item.id} className="product-list">{(item.fri === true && item.morning === true) ?  
         <div>
@@ -398,7 +400,7 @@ const length = taskItems?.length
   
   
    </div> : null}
-   {(getDay() === 6) ? <div><div><h1>Saturday's Routine</h1></div>{(taskItems?.length === 0 ? <p>start your skincare journey. click the '+' to add your first step</p> :<ul>
+   {(getDay() === 6) ? <div><div><h1 className="today-title">Saturday's Routine</h1></div>{(taskItems?.length === 0 ? <p>start your skincare journey. click the '+' to add your first step</p> :<ul>
       {taskItems?.map(item =>(
         <li key={item.id} className="product-list">{(item.sat === true && item.morning === true) ?  
         <div>
@@ -442,9 +444,7 @@ const length = taskItems?.length
     </ul>
    </div> : null}
    <div style={{color: 'pink'}}>
-<h1>TESTING</h1>
-<h1>TESTING</h1>
-<h1>TESTING</h1>
+
 
 
     </div></div>
