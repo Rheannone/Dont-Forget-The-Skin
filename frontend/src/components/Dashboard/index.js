@@ -98,6 +98,8 @@ const length = taskItems ? taskItems.length : null
 
 
   }
+  
+//   REFACTOR THE DATE GETTING TO USE STATE , POSSIBLY CONTEXT
 
   let getDay = () => {
     let d = new Date()
