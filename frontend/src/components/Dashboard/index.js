@@ -96,7 +96,7 @@ const length = taskItems?.length
 
 
   }
-
+// REFACTOR DATE SYSTEM TO USE STATE INSTEAD
   let getDay = () => {
     let d = new Date()
     let n = d.getDay()
@@ -447,7 +447,8 @@ const length = taskItems?.length
 <h1>TESTING</h1>
 
 
-    </div></div>
+</div>
+</div>
     
 
     </div>
@@ -459,8 +460,9 @@ const length = taskItems?.length
         <div className="dash-greeting">
     Hello, {sessionUser?.username}.<br></br>
     </div>
-    {/* <div className="progress-container"
-    style={movedCamera}> */}
+
+
+
     <div className="progress-cam">
       <h3>take a progress video</h3>
     <Webcam audio={false} ref={webcamRef}
